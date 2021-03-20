@@ -10,4 +10,8 @@ app.get('/',function(req,res){
     res.sendFile(path.join(__dirname+'/dist/dlmanager/index.html'));
 });
 
+app.use(cors({
+    origin: '*'
+}));
+
 app.listen(process.env.PORT || 8080);
