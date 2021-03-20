@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "lite": "lite-server",
-    "heroku-postbuild": "ng build --prod"
+    "heroku-postbuild": "ng build --configuration=production"
   },
   "engines": {
     "node": "14.16.0",
@@ -25,7 +25,9 @@
     "@angular/platform-browser": "~11.2.3",
     "@angular/platform-browser-dynamic": "~11.2.3",
     "@angular/router": "~11.2.3",
+    "angular-cors": "^1.0.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "path": "^0.12.7",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
