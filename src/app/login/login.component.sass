@@ -1,0 +1,134 @@
+@import ../../styles.sass
+    
+@keyframes roundCorners
+    0%
+        border-radius: 0
+    100%
+        border-radius: 0 8rem
+
+.loginBox
+    @include box
+    
+    img
+        align-self: center
+        width: 200px
+        height: 200px
+
+.Form
+    
+    .Form__Block
+        margin: 2em 1em
+        position: relative
+        display: flex
+        flex-flow: column nowrap
+
+        input
+            height: 40px
+            padding: .4rem .8rem
+            border-radius: 5rem
+            border-style: solid
+            border-width: 1px
+            border-color: #999999
+            outline: none
+            filter: drop-shadow(0px 3px 2px $shadows)
+
+            &:focus ~ label
+                @include labelInteraction
+                font-size: .7rem
+                color: $decorator-2
+            
+        
+        label
+            @include placeholder
+            color: #999999
+            font-weight: 900
+            letter-spacing: 1px
+            left: .8em
+
+    .Form__Button
+        display: grid
+        place-items: center
+
+        input[type="submit"]
+            @include MainButton
+            font-size: 1rem
+            font-weight: bold
+            height: 45px
+            width: 45%
+            transition: background-color .3s ease-in
+
+.login__Links
+    display: flex
+    flex-flow: column nowrap
+    margin: 4rem 0 1rem 0 
+    font-size: .8rem
+    text-align: right
+
+    a
+        color: $decorator-3
+        font-weight: bold
+        font-size: .9rem
+        transition: color .3s ease-in
+
+        &:first-child
+            margin-bottom: .5rem
+
+        &:hover
+            color: $decorator-2
+
+    span
+        font-size: .9rem
+        a
+            margin-left: .2rem
+
+@media  screen  and ( max-width: 768px )
+
+@media  screen  and ( max-width: 486px )
+    .loginBox
+        border: none
+        filter: none
+        width: 100%
+
+        img
+            width: 180px
+            height: 180px
+
+        .Form
+            margin: -.5rem 0rem 0rem 0rem
+
+            .Form__Block
+                width: 90%
+                margin: 2rem auto 2rem auto
+
+                input 
+                    height: 45px
+
+                    &:focus ~ label
+                        top: -.5rem
+                        font-size: .8rem
+                
+                label
+                    top: 14px
+
+            .Form__Button
+                margin-top: 3rem
+
+                input[type="submit"]
+                    text-align: center
+                    font-size: .9rem
+                    padding: 0
+
+        
+    
+    .login__Links
+        margin-top: 6rem
+        text-align: center
+
+        a
+            font-size: 1rem
+            font-weight: bold
+
+        span
+            color: #666666
+            font-size: 1rem
+            font-weight: 900
