@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { OperatorCredentialsComponent } from './operator-credentials/operator-credentials.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    OperatorCredentialsComponent
   ],
   imports: [
     BrowserModule,

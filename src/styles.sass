@@ -13,6 +13,12 @@ $almost-black: #071013
     font-weight: 200
     box-sizing: border-box
 
+@keyframes roundCorners
+    0%
+        border-radius: 0
+    100%
+        border-radius: 0 8rem
+        
 @mixin box
     position: absolute
     top: 50%
@@ -59,6 +65,7 @@ $almost-black: #071013
     border: 1px solid #1d1c1c
     filter: drop-shadow(0 3px 2px $shadows)
     transition: background-color .5s ease, transform .5s ease
+    outline: none
 
     &:hover
         background-color: $decorator-2
