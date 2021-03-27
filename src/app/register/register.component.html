@@ -1,0 +1,107 @@
+<div class="R-Box">
+    <div class="Img-Part">
+        <img src="https://www.adanadental.es/wp-content/uploads/2014/04/Adana-Dental-tu-proveedor-de-productos-dentales-de-calidad.jpg" alt="xd">
+    </div>
+    <div class="Form-Part">
+        <div class="SC__Container">
+            <img class="logo1" src="../../assets/img/logo_size.jpg" alt="Logo">
+            <img class="logo2" src="../../assets/img/logo_size.png" alt="logo2">
+            <div class="SC__ButtonBox">
+                <label for="CT">Seleccione un tipo de cliente: </label>
+                <select name="CT" id="CT" class="CT" (change)="selectChangeHandler($event)">
+                    <option value="#">Seleccione una opcion</option>
+                    <option value="Odontologo">Odontologo</option>
+                    <option value="Laboratorio">Laboratorio</option>
+                </select>
+            </div>
+        </div>
+        <div class="DentistForm__Box" *ngIf="dentist()">
+            <form action="" method="post" class="Dentist-Form">
+                <div class="FormBlock">
+                    <input type="text" class="FormBlock__input" id="Dentist_Name" autocomplete="off" placeholder=" ">
+                    <label for="Dentist_Name" class="FormBlock__label">Nombre</label>
+                </div>
+                <div class="FormBlock">
+                    <input type="text" class="FormBlock__input" id="Dentist_ID" autocomplete="off" placeholder=" ">
+                    <label for="Dentist_ID" class="FormBlock__label">CC</label>
+                </div>
+                <div class="FormBlock">
+                    <input type="text" class="FormBlock__input" id="Dentist_Phone" autocomplete="off" placeholder=" ">
+                    <label for="Dentist_Phone" class="FormBlock__label">Telefono</label>
+                </div>
+                <div class="FormBlock">
+                    <input type="text" class="FormBlock__input" id="Dentist_Direction" autocomplete="off" placeholder=" ">
+                    <label for="Dentist_Direction" class="FormBlock__label">Dirección</label>
+                </div>
+                <div class="FormBlock">
+                    <input type="text" class="FormBlock__input" id="Dentist_Email" autocomplete="off" placeholder=" ">
+                    <label for="Dentist_Email" class="FormBlock__label">Email</label>
+                </div>
+                <div class="FormBlock">
+                    <input type="text" class="FormBlock__input" id="Dentist_Password" autocomplete="off" placeholder=" ">
+                    <label for="Dentist_Password" class="FormBlock__label">Contraseña</label>
+                </div>
+                <div class="FormBlock">
+                    <input type="text" class="FormBlock__input" id="Dentist_Password2" autocomplete="off" placeholder=" ">
+                    <label for="Dentist_Password2" class="FormBlock__label">Contraseña</label>
+                </div>
+                <div class="ButtonBlock">
+                    <input type="submit" value="Registrarse">
+                </div>
+            </form>
+        </div>
+        <div class="LabForm__Box" *ngIf="Laboratory()">
+            <form action="" method="post" class="Lab-Form">
+                <p>Información Laboratorio: </p>
+                <div class="FormBlock">
+                    <input type="text" class="FormBlock__input" id="Lab_Name" autocomplete="off" placeholder=" ">
+                    <label for="Lab_Name" class="FormBlock__label">Nombre</label>
+                </div>
+                <div class="FormBlock">
+                    <input type="text" class="FormBlock__input" id="lab_ID" autocomplete="off" placeholder=" ">
+                    <label for="lab_ID" class="FormBlock__label">NIT</label>
+                </div>
+                <div class="FormBlock">
+                    <input type="text" class="FormBlock__input" id="lab_Phone" autocomplete="off" placeholder=" ">
+                    <label for="lab_Phone" class="FormBlock__label">Telefono</label>
+                </div>
+                <div class="FormBlock">
+                    <input type="text" class="FormBlock__input" id="lab_Direction" autocomplete="off" placeholder=" ">
+                    <label for="lab_Direction" class="FormBlock__label">Dirección</label>
+                </div>
+                <div class="FormBlock">
+                    <input type="text" class="FormBlock__input" id="lab_Email" autocomplete="off" placeholder=" ">
+                    <label for="lab_Email" class="FormBlock__label">Email</label>
+                </div>
+                <p>Información Propietario:</p>
+                <div class="FormBlock">
+                    <input type="text" class="FormBlock__input" id="Owner_name" autocomplete="off" placeholder=" ">
+                    <label for="Owner_name" class="FormBlock__label">nombre</label>
+                </div>
+                <div class="FormBlock">
+                    <input type="text" class="FormBlock__input" id="Owner_ID" autocomplete="off" placeholder=" ">
+                    <label for="Owner_ID" class="FormBlock__label">CC</label>
+                </div>
+                <div class="FormBlock">
+                    <input type="text" class="FormBlock__input" id="Owner_phone" autocomplete="off" placeholder=" ">
+                    <label for="Owner_phone" class="FormBlock__label">Telefono</label>
+                </div>
+                <div class="FormBlock">
+                    <input type="text" class="FormBlock__input" id="Owner_email" autocomplete="off" placeholder=" ">
+                    <label for="Owner_email" class="FormBlock__label">Email</label>
+                </div>
+                <div class="FormBlock">
+                    <input type="text" class="FormBlock__input" id="Owner_password" autocomplete="off" placeholder=" ">
+                    <label for="Owner_password" class="FormBlock__label">Contraseña</label>
+                </div>
+                <div class="FormBlock">
+                    <input type="text" class="FormBlock__input" id="Owner_Password2" autocomplete="off" placeholder=" ">
+                    <label for="Owner_Password2" class="FormBlock__label">Contraseña</label>
+                </div>
+                <div class="ButtonBlock">
+                    <input type="submit" value="Registrarse">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

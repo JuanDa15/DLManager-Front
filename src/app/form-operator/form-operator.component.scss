@@ -1,0 +1,273 @@
+@import '../../styles.scss';
+
+.OF-Box{
+    @include box;
+    display: grid;
+    width: 70%;
+    grid-template-columns: 150px auto;
+
+    .LG{
+        width: 150px;
+        height: 150px;
+    }
+}
+
+.Form-Container{
+    margin-bottom: 1rem;
+
+    .Form{
+        display: grid;
+        grid-template-columns: repeat(2,minmax(auto,325px)) auto;
+        grid-template-rows: repeat(12,auto);
+        padding: .3rem .6rem;
+        gap: .2rem;
+        position: relative;
+
+        p{
+            grid-column: 1 span 2;
+            color: $decorator-2;
+            font-weight: 900;
+            font-size: .9rem;
+        }
+
+        .Form__img{
+            display: none;
+        }
+
+        .Form__Block{
+            grid-column: 1/3;
+            position: relative;
+            margin-bottom: 1rem;
+            
+            &:nth-child(3){
+                grid-column: 1/2;
+                margin-right: .4rem;
+            }
+
+            &:nth-child(4){
+                grid-column: 2/3;
+                margin-left: .4rem;
+                }
+
+            &:nth-child(10){
+                grid-column: 1/2;
+                margin-right: .4rem;
+            }
+
+            &:nth-child(11){
+                grid-column: 2/3;
+                margin-left: .4rem;
+            }
+
+            &:nth-child(14){
+                grid-column: 1/2;
+                margin-right: .4rem;
+            }
+
+            &:nth-child(15){
+                grid-column: 2/3;
+                margin-left: .4rem;
+            }
+        }
+    }
+        .Form__Button{
+            grid-column: 3/4;
+            grid-row: 1/13;
+            display: grid;
+            place-items: center;
+
+            button{
+                @include MainButton;
+                margin-left: 1.5rem;
+                font-size: 1.5rem;
+            }
+        }
+}            
+
+.Block__input{
+    @include Inputedited;
+    width: 100%;
+}
+    
+.Block__label{
+    @include labelEdited;
+    font-weight: 900;
+    left: .8rem;
+}
+
+.Block__input:focus ~ .Block__label,
+.Block__input:not(:placeholder-shown).Block__input:not(:focus)~ .Block__label{
+    @include LabelAnimation;
+    font-size: .9rem;
+}
+
+@media (min-width: 1350px){
+    .OF-Box{
+        width: 1000px
+    }
+}
+
+@media (min-width:486px) and (max-width: 800px){
+    .OF-Box{
+        grid-template-columns: none;
+        grid-template-rows: none;
+        height: auto;
+        width: 100%;
+        border-radius: 0;
+        border: none;
+        filter: none;
+        animation: none;
+
+        .LG{
+            display: none;
+        }
+    }
+
+    .Form-Container{
+        .Form{
+            grid-template-columns:1fr;
+            grid-template-rows: 1fr;
+            grid-template-columns: 150px repeat(2,minmax(auto,325px));
+            grid-template-rows: repeat(14,auto);
+
+            p{
+                &:nth-child(2){
+                    grid-column: 2/4;
+                    grid-row: 1/2;
+                }
+
+                &:nth-child(9){
+                    grid-column: 1/4;
+                    grid-row: 7/8;
+                }
+            }
+
+            .Form__img{
+                display: block;
+                width: 150px;
+                height: 150px;
+                grid-column: 1/2;
+                grid-row: 1/4;
+            }
+
+            .Form__Block{
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+                grid-column: 1/4;
+
+                &:nth-child(3){
+                    grid-column: 2/4;
+                    grid-row: 2/3;
+                }
+
+                &:nth-child(4){
+                    grid-column: 2/3;
+                    grid-row: 3/4;
+                    margin-left:0;
+                }
+
+                &:nth-child(5){
+                    grid-column: 3/4;
+                    grid-row: 3/4;
+                }
+
+                &:nth-child(10){
+                    grid-column: 1/4;
+                    grid-row: 8/9;
+                }
+
+                &:nth-child(11){
+                    grid-column: 1/3;
+                    grid-row: 9/10;
+                    margin-left: 0;
+                }
+
+                &:nth-child(12){
+                    grid-column: 3/4;
+                    grid-row: 9/10;
+                }
+
+                &:nth-child(14){
+                    grid-column: 1/4;
+                    grid-row: 11/12;
+                }
+
+                &:nth-child(15){
+                    grid-column: 1/3;
+                    grid-row: 13/14;
+                    margin-left: 0;
+                }
+
+                &:nth-child(16){
+                    grid-column: 3/4;
+                    grid-row: 13/14;
+                }
+            }
+
+            .Form__Button{
+                grid-column: 3/4;
+                grid-row: 14/15;
+                display: grid;
+                place-items:  center right;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:486px){
+    .OF-Box{
+        width: 100%;
+        border: none;
+        border-radius: 0;
+        filter: none;
+        animation: none;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        transform: none;
+        top: 0;
+        left: 0;
+        position: relative;
+        
+        .LG{
+            display: none;
+        }
+    }
+
+    .Form-Container{
+        .Form{
+            display: flex;
+            flex-flow: column nowrap;
+
+            p{
+                text-align: center;
+                font-size: 1.1rem;
+
+            }
+
+            .Form__img{
+                display: block;
+                width: 180px;
+                height: 180px;
+                align-self: center;
+            }
+            
+            .Form__Block{
+                margin-left: 0;
+                margin-right: 0;
+
+                &:nth-child(4){
+                    margin-left:0;
+                }
+
+                &:nth-child(11){
+                    margin-left: 0;
+                }
+
+                &:nth-child(15){
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}

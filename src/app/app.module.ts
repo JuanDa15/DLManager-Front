@@ -6,13 +6,19 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { OperatorCredentialsComponent } from './operator-credentials/operator-credentials.component';
+import { FormOperatorComponent } from './form-operator/form-operator.component';
+import { RegisterComponent } from './register/register.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ForgotPasswordComponent,
-    OperatorCredentialsComponent
+    OperatorCredentialsComponent,
+    FormOperatorComponent,
+    RegisterComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

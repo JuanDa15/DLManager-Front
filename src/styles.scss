@@ -1,0 +1,110 @@
+/* You can add global styles to this file, and also import 
+other style files */
+@import '~hamburgers/_sass/hamburgers/hamburgers.scss';
+
+$white: #ffffff;
+$shadows: #666666;
+$light-gray: #dfe0e2;
+$decorator-1: #2892d7;
+$decorator-2: #db2763;
+$decorator-3: #0F7CDB;
+$dark-blue: #195c8f;
+$almost-black: #071013;
+$smartphone: 486px;
+$tablets: 800px;
+$desktop: 1350px;
+
+*{
+    font-family: 'Montserrat', sans-serif,Helvetica, sans-serif,  Arial;
+    font-weight: 200;
+    box-sizing: border-box;
+}
+
+@keyframes roundCorners{
+    0%{
+        border-radius: 0;
+    }100%{
+        border-radius: 0 8rem;
+    }
+}
+
+@mixin box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $white;
+    border: 1px solid #ada9a9;
+    filter: drop-shadow(0px 3px 6px $shadows);
+    display: flex;
+    flex-flow: column nowrap;
+    padding: .4em .8em;
+    border-radius: 0 8em;
+    width: 400px;
+    animation-name: roundCorners;
+    animation-duration: .8s;
+    animation-iteration-count: 1; 
+    animation-timing-function: cubic-bezier(p1, p2, p3, p4);
+    transition: border .5s ease, filter .5s ease;
+}
+
+@mixin fieldDecoration{
+    border: 1px solid #999;
+    border-radius: 5rem;
+    filter: drop-shadow(0px 3px 2px $shadows);
+    outline: none;
+    padding: .5rem 1rem;
+    color: $shadows;
+    font-weight: 900;
+}
+
+@mixin MainButton{
+    background-color: $decorator-3;
+    color: #ffffff;
+    padding: .5rem 1.5rem;
+    border-radius: 5rem;
+    border: 1px solid #1d1c1c;
+    filter: drop-shadow(0 3px 2px $shadows);
+    transition: background-color .5s ease, transform .5s ease;
+    outline: none;
+
+    &:hover{
+        background-color: $decorator-2;
+        transform: scale(1.1);
+    }
+}
+
+@mixin Inputedited{
+    border: 1px solid #999;
+    border-radius: 5rem;
+    filter: drop-shadow(0px 3px 2px $shadows);
+    outline: none;
+    padding: .5rem 1rem;
+    color: $shadows;
+    font-weight: 900;
+    height: 40px;
+    padding: .4rem .8rem;
+    width: 90%;
+    margin: 0 auto;
+}
+
+@mixin labelEdited{
+    position: absolute;
+    top: 12px;
+    transition: ease .5s;
+    cursor: text;
+    color: #999;
+    font-weight: bold;
+    left: 2rem;
+    letter-spacing: 1px;
+}
+
+// .Block__input:focus ~ .Block__label,
+// .Block__input:not(:placeholder-shown).Block__input:not(:focus)~ .Block__label 
+
+@mixin LabelAnimation{
+    top: -.5rem;
+    font-size: .7rem;
+    background-color: $white;
+    color: $decorator-2;
+}
