@@ -125,6 +125,7 @@
             transition: all 1s;
             display:flex;
             flex-flow: column nowrap;
+            display: none;
 
             .Block{
                 height: 48px;
@@ -200,6 +201,7 @@
         }
     }
     .Nav__Responsive:hover > .Nav__ResponsiveContainer{
+        display: block;
         right: 0;
     }
 }
