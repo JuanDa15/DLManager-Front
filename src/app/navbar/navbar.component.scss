@@ -116,10 +116,10 @@
 
         .Nav__ResponsiveContainer{
             position: absolute;
-            right:0;
+            right:-1000px;
             font-size: 1.5rem;
             background: #195c8f;
-            width: calc(100vw - 256px);
+            width: 75%;
             height: 100vh;
             text-align: right;
             transition: all 1s;
@@ -155,26 +155,6 @@
 
                 &:nth-child(2){
                     margin-top: 3rem;
-                }
-
-                 &:nth-child(7){
-                    height: 50%;
-                    display:grid;
-                    width:10%;
-                    place-items: end;
-
-                    i{
-                        font-size: 3rem;
-                    }
-
-                    &::before{
-                        content: "";
-                        border-bottom: none;
-                    }
-                    
-                    &:hover{
-                        background-color: #0000;
-                    }
                 }
 
                 &:hover{
