@@ -59,11 +59,11 @@
         transition: color .3s ease-in;
 
         &:first-child{
-            margin-bottom: .5rem
+            margin-bottom: .5rem;
         }
 
         &:hover{
-            color: $decorator-2
+            color: $decorator-2;
         }
     }
 
