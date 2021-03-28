@@ -1,0 +1,39 @@
+.ProfileOpe{
+    display: grid;
+    grid-template-columns: auto repeat(2,1fr);
+    grid-template-rows: 60px auto;
+
+    app-navbar{
+        grid-row:1/2;
+        grid-column: 1/4;
+    }
+
+    app-aside,app-aside-clients{
+        grid-column: 1/2;
+    }
+
+    app-main-panel-ope,app-clients-v,app-pedidosv,app-registro-actividades,app-ayuda,app-lab-profile-home,app-den-profile-home{
+        grid-column: 2/4;
+    }
+}
+
+@media(max-width:800px){
+    app-aside,app-aside-clients{
+        display: none;
+    }
+    
+    .ProfileOpe{
+        grid-template-columns: 1fr;
+        grid-template-rows: 60px 1fr;
+
+        app-navbar{
+            grid-column: 1/2;
+            grid-row: 1/2;
+        }
+
+        app-main-panel-ope,app-clients-v,app-pedidosv,app-registro-actividades,app-ayuda,app-lab-profile-home,app-den-profile-home{
+            grid-column: 1/2;
+            grid-row: 2/3;
+        }
+    }
+}

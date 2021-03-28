@@ -1,0 +1,58 @@
+<div class="editBox">
+    <h1>Clientes > Editar datos</h1>
+    <form action="" method="post" class="form">
+        <div class="FormBlock">
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="name">
+            <label for="name" class="Block__label">Nombre</label>
+        </div>
+        <div class="FormBlock">
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="ID">
+            <label for="ID" class="Block__label">ID</label>
+        </div>
+        <div class="FormBlock">
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="Email">
+            <label for="Email" class="Block__label">Email</label>
+        </div>
+        <div class="FormBlock">
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="phone">
+            <label for="phone" class="Block__label">teléfono</label>
+        </div>
+        <div class="FormBlock">
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="Direction">
+            <label for="Direction" class="Block__label">Dirección</label>
+        </div>
+        <div class="FormBlock">
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="password">
+            <label for="password" class="Block__label">Contraseña:</label>
+        </div>
+        <div class="FormBlock">
+            <input type="text" class="Block__input" readonly placeholder="Laboratorio" autocomplete="off" id="type">
+            <label for="type" class="Block__label">Tipo:</label>
+        </div>
+        <span>Propietario: </span>
+        <div class="FormBlock">
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="nameP">
+            <label for="nameP" class="Block__label">Nombre</label>
+        </div>
+        <div class="FormBlock">
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="IDP">
+            <label for="IDP" class="Block__label">ID</label>
+        </div>
+        <div class="FormBlock">
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="EmailP">
+            <label for="EmailP" class="Block__label">Email</label>
+        </div>
+        <div class="FormBlock">
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="phoneP">
+            <label for="phoneP" class="Block__label">teléfono</label>
+        </div>
+        <div class="ButtonsBlock">
+            <a class="delete" (click)="showAlert()"><i class="fas fa-trash"></i></a>
+            <a class="hide" (click)="HideClient()"><i class="fas fa-eye"></i></a>
+            <a href="#" class="cancel"><i class="fas fa-times"></i></a>
+            <button type="submit">
+                <i class="fas fa-check"></i>
+            </button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,82 @@
+@import '../../styles.scss';
+
+.PedidosPanel{
+    width: 100%;
+    height:auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4,auto);
+    place-items: center;
+
+    h1{
+        margin-left: 1.3rem;
+        font-weight: 900;
+        color: $decorator-2;
+        grid-column: 1/2;
+        grid-row: 1/2;
+        justify-self: start;
+    }
+
+    input{
+        margin-left: 1.3rem;
+        width: 95%;
+        @include fieldDecoration;
+        margin-bottom: 1.7rem;
+        grid-row: 2/3;
+        justify-self: start;
+    }
+}
+
+.tableContainer{
+    border-radius: 1rem;
+    border: 1px solid #999;
+    margin-top: 1rem;
+    margin-left: 1.3rem;
+    width: 95%;
+    overflow:auto;
+    height: 480px;
+    background-color: #DFE0E2;
+    grid-row: 3/4;
+    justify-self: start;
+
+
+    table{
+        width: 100%;
+        text-align: center;
+        background-color: #fff;
+        border-collapse: collapse;
+        overflow:auto;
+    
+        tr{
+            text-align: center;
+
+            th{
+                font-weight: bold;
+                color: black;
+            }
+
+            td{       
+                color: $dark-blue;;
+            }
+
+            td,th{
+                padding: .8rem .6rem;
+                font-weight: 900;
+                border: 1px solid #999;
+
+                i{
+                    color: $decorator-2;
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 800px){
+    .ClientsPanel{
+        a{
+            margin-right: 1.5rem;
+        }
+    }
+}

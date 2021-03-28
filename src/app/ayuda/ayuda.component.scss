@@ -1,0 +1,31 @@
+@import '../../styles.scss';
+.AyudaContainer{
+    display: flex;
+    flex-flow: column nowrap;
+
+    h1{
+        color: $decorator-2;
+        font-weight: 900;
+        margin-left: 1.3rem;
+    }
+}
+
+.HelpBlock{
+    display: flex;
+    width: 70%;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin: 1.5rem auto 1.5rem 0;
+
+    i{
+        margin-right: 1rem;
+        font-size: 3rem;
+        margin-left: 1.3rem;
+        color: $decorator-2;
+        filter: drop-shadow(1px 1p 2px #666);
+    }
+
+    p{
+        font-weight: 900;
+    }
+}

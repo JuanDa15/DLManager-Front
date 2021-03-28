@@ -1,0 +1,119 @@
+@import '../../styles.scss';
+.MainPanel{
+    width: 100%;
+    height: calc(100vh - 60px);
+    background-color: "#fff";
+    position: relative;
+    background-image: url('../../assets/img/dentista.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 50px 1fr 1fr;
+    grid-template-rows: repeat(6,1fr);
+}
+
+.UsersCont{
+    grid-column: 1/3;
+    grid-row: 1/3;
+    background-color: $white;
+    width:85%;
+    height:60%;
+    margin: auto auto;
+    border-radius: 1.8rem;
+    border: 1px solid #999;
+    filter: drop-shadow(2px 2px 3px #666);
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: auto 1fr;
+    }
+
+    i{
+        font-size: 5vmax;
+        align-self: center;
+        margin-left: 1rem;
+        color: $dark-blue;
+    }
+
+    .counter{
+        font-size: 4vmax;
+        align-self: center;
+        justify-self: end;
+        margin-right: 1rem;
+        color: $dark-blue;
+        font-weight: 900;
+        cursor: default;
+    }
+
+.caption{
+        font-size: 1rem;
+        font-weight: 900;
+        color: $dark-blue;
+        grid-column: 1/3;
+        grid-row: 1/2;
+        padding: 1rem .9rem;
+        position:relative;
+        cursor: default;
+        background-color: #fff;
+        border-radius: 1.8rem;
+
+        &::before{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            top: 3.1rem;
+            left: 0;
+            border-bottom: 2px solid #999;
+        }
+}
+
+.Recents{
+    grid-column: 4/6;
+    grid-row: 1/6;
+    background-color: $white;
+    width:90%;
+    height:85%;
+    margin: auto auto;
+    border-radius: 1.8rem;
+    border: 1px solid #999;
+    filter: drop-shadow(2px 2px 3px #666);
+    overflow: auto;
+    background-color: #DFE0E2;
+
+    table{
+        width: 100%;
+        border-collapse:collapse;
+        background-color: #fff;
+
+        tr{
+            text-align: center;
+            border-bottom: 2px solid #999;
+
+            td,th{
+                padding: .8rem .6rem;
+                color: $dark-blue;
+                font-weight: 900;
+            }
+        }
+    }
+}
+
+@media(max-width:800px){
+    .MainPanel{
+        grid-template-columns: 1fr;
+        grid-template-rows: .5fr 1fr;
+    }
+
+    .UsersCont{
+        grid-column: 1/2;
+        grid-row: 1/2;
+        width:90%;
+    }
+
+    .Recents{
+        grid-column:1/2;
+        grid-row: 2/3;
+        height: 95%;
+    }
+}

@@ -3,7 +3,7 @@
 .sign-out{
     margin-left: 1.5rem;
     font-size: 48px;
-    color: $decorator-3;
+    color: $dark-blue;
     filter: drop-shadow(1px 1px 3px #666);
     transition: color .3s ease;
 
@@ -15,9 +15,9 @@
 .Navbar__Name{
     font-size: 1.5vmax;
     font-weight: 900;
-    color: $decorator-3;
+    color: $dark-blue;
     filter: drop-shadow(2px 2px 1px #666);
-
+    justify-self: center;
     transition: color .3s ease;
 
     &:hover{
@@ -26,7 +26,7 @@
 }
 
 .Navbar__user{
-    width: 25%;
+    width: auto;
     margin-right: 1.5rem;
     display: flex;
     justify-content: flex-end;
@@ -41,7 +41,7 @@
 
     i{
         font-size: 48px;
-        color: #195c8f;
+        color: $dark-blue;
         filter: drop-shadow(1px 1px 3px #666);
 
         transition: color .3s ease;
@@ -59,9 +59,8 @@
 
 .Header{
     background: #fff;
-    position: sticky;
-    top: 0;
     margin-top: 0;
+    margin: 0;
 }
     .Header__Nav{
         display: flex;
@@ -105,7 +104,7 @@
     }
         .Nav__responsive-button{
             font-size: 2.5rem;
-            color: #195c8f;
+            color: $dark-blue;
             padding: 6px 12px;
             filter: drop-shadow(2px 2px 2px #666);
         }
@@ -115,17 +114,19 @@
         }
 
         .Nav__ResponsiveContainer{
+            top: 60px;
             position: absolute;
             right:-1000px;
             font-size: 1.5rem;
-            background: #195c8f;
+            background: $dark-blue;
             width: 75%;
-            height: 100vh;
+            height: calc(100vh - 60px);
             text-align: right;
             transition: all 1s;
             display:flex;
             flex-flow: column nowrap;
             display: none;
+            z-index: 1001;
 
             .Block{
                 height: 48px;
@@ -203,5 +204,11 @@
     .Nav__Responsive:hover > .Nav__ResponsiveContainer{
         display: block;
         right: 0;
+    }
+}
+
+@media(max-width:486px){
+    .Nav__ResponsiveContainer{
+        width: 100%;
     }
 }
