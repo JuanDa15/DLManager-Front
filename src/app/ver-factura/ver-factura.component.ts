@@ -1,13 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FnParam } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-ver-factura',
   templateUrl: './ver-factura.component.html',
   styleUrls: ['./ver-factura.component.scss']
 })
-export class VerFacturaComponent { 
+export class VerFacturaComponent implements OnInit { 
   
+  email = '';
+  password = '';
+
+  constructor() { }
+
+  public facturaForm = new FormGroup({
+    nombre: new FormControl('',Validators.required),
+    id: new FormControl('',Validators.required),
+    correo: new FormControl('', Validators.compose([Validators.required,Validators.email])),
+    telefono: new FormControl('',Validators.compose([Validators.required,Validators.minLength(7),Validators.maxLength(10)])),
+    nombre_p: new FormControl('',Validators.required),
+    comentario: new FormControl('',Validators.required),
+    direccion: new FormControl('',Validators.required),
+    precio: new FormControl('',Validators.required),
+    fecha: new FormControl('',Validators.required),
+    estado: new FormControl('',Validators.required)
+  })
+
+  ngOnInit(): void {
+  }
+
   showAlert(){
     Swal.fire({
       icon: 'warning',
@@ -33,7 +56,8 @@ export class VerFacturaComponent {
           showDenyButton:true,
           denyButtonText:'Cancelar',
           denyButtonColor: '#0F7CDB'
-        })
+          }
+        )
       }
     })
   }

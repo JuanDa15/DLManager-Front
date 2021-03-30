@@ -90,7 +90,7 @@
         place-items: center;
     }
 
-    input{
+    button{
         @include MainButton;
         padding: 0;
         height: 40px;

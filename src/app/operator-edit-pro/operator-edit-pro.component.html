@@ -3,56 +3,56 @@
         <i class="fas fa-user-circle"></i>
         <span>Editar Perfil</span>
     </div>
-    <form action="" method="post" class="form">
+    <form class="form" [formGroup]="opeForm">
         <div class="formBlock">
-            <input class="Block__input" type="text" name="" id="Name" placeholder=" " autocomplete="off">
+            <input class="Block__input" type="text" id="Name" placeholder=" " autocomplete="off" formControlName="nombre">
             <label class="Block__label" for="Name">Nombre</label>
         </div>
         <div class="formBlock">
-            <input class="Block__input" type="number" id="ID" placeholder=" " autocomplete="off">
+            <input class="Block__input" type="number" id="ID" placeholder=" " autocomplete="off" formControlName="cedula">
             <label class="Block__label" for="ID">CC</label>
         </div>
         <div class="formBlock">
-            <input class="Block__input" type="tel" name="" id="Phone" placeholder=" " autocomplete="off">
+            <input class="Block__input" type="tel" id="Phone" placeholder=" " autocomplete="off" formControlName="telefono">
             <label class="Block__label" for="Phone">Telefono</label>
         </div>
         <div class="formBlock">
-            <input class="Block__input" type="email" name="" id="Email" placeholder=" " autocomplete="off">
+            <input class="Block__input" type="email" id="Email" placeholder=" " autocomplete="off" formControlName="correo">
             <label class="Block__label" for="Email">Correo</label>
         </div>
         <div class="formBlock">
-            <input class="Block__input" type="number" name="" id="BA1" placeholder=" " autocomplete="off">
+            <input class="Block__input" type="number" id="BA1" placeholder=" " autocomplete="off" formControlName="cta_1">
             <label class="Block__label" for="BA1">Cuenta Bancaria 1</label>
         </div>
         <div class="formBlock">
-            <input class="Block__input" type="number" name="" id="BA2" placeholder=" " autocomplete="off">
+            <input class="Block__input" type="number" id="BA2" placeholder=" " autocomplete="off" formControlName="cta_2">
             <label class="Block__label" for="BA2">Cuenta Bancaria 2</label>
         </div>
         <span>Editar información laboratorio:</span>
         <div class="formBlock">
-            <input class="Block__input" type="text" name="" id="NameLab" placeholder=" " autocomplete="off">
+            <input class="Block__input" type="text" id="NameLab" placeholder=" " autocomplete="off" formControlName="nombre_l">
             <label class="Block__label" for="NameLab">Nombre</label>
         </div>
         <div class="formBlock">
-            <input class="Block__input" type="text" name="" id="NIT" placeholder=" " autocomplete="off">
+            <input class="Block__input" type="text" id="NIT" placeholder=" " autocomplete="off" formControlName="nit_l">
             <label class="Block__label" for="NIT">NIT</label>
         </div>
         <div class="formBlock">
-            <input class="Block__input" type="tel" name="" id="labPhone" placeholder=" " autocomplete="off">
+            <input class="Block__input" type="tel" id="labPhone" placeholder=" " autocomplete="off" formControlName="telefono_l">
             <label class="Block__label" for="labPhone">Teléfono</label>
         </div>
         <div class="formBlock">
-            <input class="Block__input" type="email" name="" id="EmailLab" placeholder=" " autocomplete="off">
+            <input class="Block__input" type="email" id="EmailLab" placeholder=" " autocomplete="off" formControlName="correo_l">
             <label class="Block__label" for="EmailLab">Correo</label>
         </div>
         <div class="formBlock">
-            <input class="Block__input" type="text" name="" id="address" placeholder=" " autocomplete="off">
+            <input class="Block__input" type="text" id="address" placeholder=" " autocomplete="off" formControlName="direccion_l">
             <label class="Block__label" for="address">Dirección</label>
         </div>
         <div class="ButtonsBlock">
             <a class="change" routerLink="/sesion/cambiarcontraseña">Cambiar Contraseña</a>
             <a class="cancel" routerLink="/sesion/navegar/paneloperador"><i class="fas fa-times"></i></a>
-            <button class="save" type="submit">
+            <button type="submit" class="save" [disabled]="!opeForm.valid" (click)="onUpdate(opeForm.value)">
                 <i class="far fa-save"></i>
             </button>
         </div>

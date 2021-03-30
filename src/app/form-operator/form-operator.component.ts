@@ -36,7 +36,7 @@ export class FormOperatorComponent implements OnInit {
   onSignUpOp(form){
     delete form['contraseña2'];
     form['key'] = environment.OPE_SIGNIN_KEY;
-    this.update.patchOpe(form).subscribe({
+    this.update.put(form).subscribe({
       next: value => {
         Swal.fire({
           title: 'Datos guardados correctamente',

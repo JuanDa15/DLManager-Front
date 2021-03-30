@@ -1,25 +1,27 @@
 <div class="editBox">
     <h1>Clientes > Editar datos</h1>
-    <form class="form">
+    <form class="form" [formGroup]="odontologoForm">
         <div class="FormBlock">
-            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="name">
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="name" formControlName="nombre">
             <label for="name" class="Block__label">Nombre</label>
         </div>
         <div class="FormBlock">
-            <input type="number" class="Block__input" placeholder=" " autocomplete="off" id="ID">
-            <label for="ID" class="Block__label">ID</label>
+            <input type="number" class="Block__input" placeholder=" " autocomplete="off" id="ID" formControlName="cedula">
+            <label for="ID" class="Block__label">cedula</label>
         </div>
         <div class="FormBlock">
-            <input type="email" class="Block__input" placeholder=" " autocomplete="off" id="Email">
+            <input type="email" class="Block__input" placeholder=" " autocomplete="off" id="Email"
+            formControlName="correo">
             <label for="Email" class="Block__label">Email</label>
         </div>
         <div class="FormBlock">
-            <input type="tel" class="Block__input" placeholder=" " autocomplete="off" id="phone">
+            <input type="number" class="Block__input" placeholder=" " autocomplete="off" id="phone"
+            formControlName="telefono">
             <label for="phone" class="Block__label">teléfono</label>
         </div>
         <div class="FormBlock">
-            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="password">
-            <label for="password" class="Block__label">Contraseña:</label>
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="direccion" formControlName="direccion">
+            <label for="direccion" class="Block__label">Dirección:</label>
         </div>
         <div class="FormBlock">
             <input type="text" class="Block__input" readonly placeholder="Odontologo" autocomplete="off" id="type">
@@ -27,9 +29,9 @@
         </div>
         <div class="ButtonsBlock">
             <a class="delete" (click)="showAlert()"><i class="fas fa-trash"></i></a>
-            <a class="hide"(click)="HideClient()"><i class="fas fa-eye"></i></a>
-            <a href="#" class="cancel"><i class="fas fa-times"></i></a>
-            <button type="submit" >
+            <a class="hide"(click)="onHide()"><i class="fas fa-eye"></i></a>
+            <a routerLink="/sesion/navegar/verclientes" class="cancel"><i class="fas fa-times"></i></a>
+            <button type="submit" class="save" [disabled]="!odontologoForm.valid" (click)="onUpdate(odontologoForm.value)">
                 <i class="fas fa-check"></i>
             </button>
         </div>

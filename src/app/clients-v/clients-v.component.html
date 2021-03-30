@@ -11,26 +11,12 @@
                 <th>Tipo</th>
                 <th> </th>
             </tr>
-            <tr>
-                <td>Juan David</td>
-                <td>1088255272</td>
-                <td>jdoo1115@gmail.com</td>
-                <td>odontologo</td>
-                <td><i class="far fa-edit"></i></td>
-            </tr>
-            <tr>
-                <td>Jhonatan</td>
-                <td>10104575</td>
-                <td>jo@gmail.com</td>
-                <td>odontologo</td>
-                <td><i class="far fa-edit"></i></td>
-            </tr>
-            <tr>
-                <td>Gandhi lab</td>
-                <td>10104575-1</td>
-                <td>gandhilab@glab.com</td>
-                <td>laboratorio </td>
-                <td><i class="far fa-edit"></i></td>
+            <tr *ngFor="let usuario of usuarios">
+                <td>{{usuario.nombre}}</td>
+                <td>{{usuario.nit || usuario.cedula}}</td>
+                <td>{{usuario.correo}}</td>
+                <td>{{getType(usuario)}}</td>
+                <td><i (click)="onEdit(usuario.nit || usuario.cedula,usuario)" class="far fa-edit"></i></td>
             </tr>
         </table>
     </div>

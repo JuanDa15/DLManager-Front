@@ -131,9 +131,12 @@
     @include labelEdited;
 }
 
-.Block__input:focus ~ .Block__label, .Block__input:not(:placeholder-shown).Block__input:not(:focus)~ .Block__label{
+.Block__input:focus ~ .Block__label, .Block__input:not(:placeholder-shown).Block__input:not(:focus)~ .Block__label,
+.Block__input ~ .Block__label{
     @include LabelAnimation;
     font-size: 1rem;
+    color: #000;
+    font-weight: bold;
 } 
 
 .ButtonsBlock{

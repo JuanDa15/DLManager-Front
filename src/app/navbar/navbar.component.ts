@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { LogoutService } from '../services/logout.service';
+import { TokenmanagerService } from '../services/tokenmanager.service';
+import { environment } from '../../environments/environment.prod';
 
 @Component({
   selector: 'app-navbar',
@@ -11,8 +13,9 @@ import { LogoutService } from '../services/logout.service';
 
 export class NavbarComponent implements OnInit {
   
-  constructor(private loguotservice: LogoutService, private router:Router){}
+  constructor(private loguotservice: LogoutService, private router:Router,private tokenm: TokenmanagerService){}
 
+  correo = this.tokenm.getEmail();
   ngOnInit(): void {
   }
 

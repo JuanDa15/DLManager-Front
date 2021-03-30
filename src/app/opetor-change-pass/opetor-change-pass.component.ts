@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators, FormControlName } from '@angular/forms';
+import Swal from 'sweetalert2';
+import { environment } from '../../environments/environment.prod';
+import { UpdateopService } from '../services/updateop.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-opetor-change-pass',
@@ -7,9 +12,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OpetorChangePassComponent implements OnInit {
 
-  constructor() { }
+  constructor(private update: UpdateopService, private router: Router) { }
+
+  public cambiarpassForm = new FormGroup({
+    contraseña: new FormControl('',Validators.required),
+    contraseña_n: new FormControl('',Validators.required),
+    contraseña_n2: new FormControl('',Validators.required)
+  })
 
   ngOnInit(): void {
+  }
+
+  onChangePass(form){
+    delete form['contraseña_n2'];
+    form['key'] = environment.OPE_SIGNIN_KEY;
+    this.update.patch(form).subscribe({
+      next: value =>{
+        Swal.fire({
+          title: 'Contraseña cambiada correctamente',
+          icon: 'success',
+          position: 'top-right',
+          timer: 2000
+        })
+        this.router.navigate(['/sesion/editarperfil']);
+      },
+      error: err => {
+        Swal.fire({
+          title: 'Error al cambiar su contraseña',
+          icon: 'error',
+          position: 'top-right',
+          timer: 2000
+        })
+        form.reset();
+      }
+    })
+
   }
 
 }

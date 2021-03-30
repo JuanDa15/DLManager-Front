@@ -26,6 +26,7 @@ import { DenProfileHomeComponent } from './den-profile-home/den-profile-home.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NavbarClientsComponent } from './navbar-clients/navbar-clients.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 
@@ -59,7 +60,8 @@ import { NavbarClientsComponent } from './navbar-clients/navbar-clients.componen
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

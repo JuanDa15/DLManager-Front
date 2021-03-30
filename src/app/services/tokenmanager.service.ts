@@ -22,6 +22,12 @@ export class TokenmanagerService {
     return false;
   }
 
+  getPassword(){
+    if(localStorage.getItem('token') !== null){
+      return jwtDecode(localStorage.getItem('token'))['contraseña'];
+    }
+  }
+
   
 
 }

@@ -3,48 +3,48 @@
         <h1>Factura No. <span>000001</span></h1>
         <a routerLink="/sesion/navegar/verpedidos"><i class="far fa-times-circle"></i></a>
     </div>
-    <form action="" method="post" class="form">
+    <form class="form"  [formGroup]="facturaForm">
         <span>Información Cliente:</span>
         <div class="FormBlock">
-            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="name" readonly>
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="name" readonly formControlName="nombre">
             <label for="name" class="Block__label">Nombre</label>
         </div>
         <div class="FormBlock">
-            <input type="number" class="Block__input" placeholder=" " autocomplete="off" id="ID" readonly>
+            <input type="number" class="Block__input" placeholder=" " autocomplete="off" id="ID" readonly formControlName="id">
             <label for="ID" class="Block__label">ID</label>
         </div>
         <div class="FormBlock">
-            <input type="email" class="Block__input" placeholder=" " autocomplete="off" id="Email" readonly>
+            <input type="email" class="Block__input" placeholder=" " autocomplete="off" id="Email" readonly formControlName="correo">
             <label for="Email" class="Block__label">Email</label>
         </div>
         <div class="FormBlock">
-            <input type="tel" class="Block__input" placeholder=" " autocomplete="off" id="phone" readonly>
+            <input type="tel" class="Block__input" placeholder=" " autocomplete="off" id="phone" readonly formControlName="telefono">
             <label for="phone" class="Block__label">teléfono</label>
         </div>
         <span>Producto: </span>
         <div class="FormBlock">
-            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="Pname" readonly>
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="Pname" readonly formControlName="nombre_p">
             <label for="Pname" class="Block__label">Nombre Producto</label>
         </div>
         <div class="FormBlock">
-            <textarea class="Block__input" placeholder=" " autocomplete="off" id="comment" readonly></textarea>
+            <textarea class="Block__input" placeholder=" " autocomplete="off" id="comment" readonly formControlName="comentario"></textarea>
             <label for="comment" class="Block__label">Comentario extra:</label>
         </div>
         <span>Extras: </span>
         <div class="FormBlock">
-            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="address" readonly>
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="address" readonly formControlName="direccion">
             <label for="address" class="Block__label">Dirección</label>
         </div>
         <div class="FormBlock">
-            <input type="number" class="Block__input" placeholder=" " autocomplete="off" id="price" readonly>
+            <input type="number" class="Block__input" placeholder=" " autocomplete="off" id="price" readonly formControlName="valor">
             <label for="price" class="Block__label">Valor</label>
         </div>
         <div class="FormBlock">
-            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="Fecha" readonly>
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="Fecha" readonly formControlName="fecha">
             <label for="Fecha" class="Block__label">Fecha</label>
         </div>
         <div class="FormBlock">
-            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="estate" readonly>
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="estate" readonly formControlName="estado">
             <label for="estate" class="Block__label">Estado:</label>
         </div>
         <div class="ButtonsBlock">

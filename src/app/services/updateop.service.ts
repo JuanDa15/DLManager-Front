@@ -9,7 +9,15 @@ export class UpdateopService {
 
   constructor(private http: HttpClient) { }
 
-  patchOpe(body){
-    return this.http.patch(environment.backendUrl + 'adminpatch',body,{headers: {Authorization: `Bearer ${environment.OPE_SIGNIN_KEY}`}});
+  put(body){
+    return this.http.put(environment.backendUrl + 'opeservice',body,{headers: {Authorization: `Bearer ${environment.OPE_SIGNIN_KEY}`}});
+  }
+
+  get(){
+    return this.http.get(environment.backendUrl + 'opeservice', {headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}});
+  }
+
+  patch(body){
+    return this.http.patch(environment.backendUrl + 'opeservice',body,{headers: {Authorization: `Bearer ${environment.OPE_SIGNIN_KEY}`}});
   }
 }
