@@ -21,7 +21,7 @@
         display: grid;
         place-items: center;
 
-        input[type="submit"]{
+       button{
             @include MainButton;
             font-size: 1rem;
             font-weight: bold;

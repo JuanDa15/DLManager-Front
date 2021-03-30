@@ -1,6 +1,7 @@
 <div class="R-Box">
     <div class="Img-Part">
-        <img src="https://www.adanadental.es/wp-content/uploads/2014/04/Adana-Dental-tu-proveedor-de-productos-dentales-de-calidad.jpg" alt="xd">
+        <img src="https://www.adanadental.es/wp-content/uploads/2014/04/Adana-Dental-tu-proveedor-de-productos-dentales-de-calidad.jpg"
+            alt="xd">
     </div>
     <div class="Form-Part">
         <div class="SC__Container">
@@ -16,90 +17,116 @@
             </div>
         </div>
         <div class="DentistForm__Box" *ngIf="dentist()">
-            <form action="" method="post" class="Dentist-Form">
+            <form [formGroup]="odontologoForm" class="Dentist-Form">
                 <div class="FormBlock">
-                    <input type="text" class="FormBlock__input" id="Dentist_Name" autocomplete="off" placeholder=" ">
+                    <input type="text" class="FormBlock__input" id="Dentist_Name" autocomplete="off" placeholder=" "
+                        formControlName="nombre">
                     <label for="Dentist_Name" class="FormBlock__label">Nombre</label>
                 </div>
                 <div class="FormBlock">
-                    <input type="text" class="FormBlock__input" id="Dentist_ID" autocomplete="off" placeholder=" ">
+                    <input type="number" class="FormBlock__input" id="Dentist_ID" autocomplete="off" placeholder=" "
+                        formControlName="cedula">
                     <label for="Dentist_ID" class="FormBlock__label">CC</label>
                 </div>
                 <div class="FormBlock">
-                    <input type="text" class="FormBlock__input" id="Dentist_Phone" autocomplete="off" placeholder=" ">
+                    <input type="number" class="FormBlock__input" id="Dentist_Phone" autocomplete="off" placeholder=" "
+                        formControlName="telefono">
                     <label for="Dentist_Phone" class="FormBlock__label">Telefono</label>
                 </div>
                 <div class="FormBlock">
-                    <input type="text" class="FormBlock__input" id="Dentist_Direction" autocomplete="off" placeholder=" ">
+                    <input type="text" class="FormBlock__input" id="Dentist_Direction" autocomplete="off"
+                        placeholder=" " formControlName="direccion">
                     <label for="Dentist_Direction" class="FormBlock__label">Dirección</label>
                 </div>
                 <div class="FormBlock">
-                    <input type="text" class="FormBlock__input" id="Dentist_Email" autocomplete="off" placeholder=" ">
+                    <input type="email" class="FormBlock__input" id="Dentist_Email" autocomplete="off" placeholder=" "
+                        formControlName="correo">
                     <label for="Dentist_Email" class="FormBlock__label">Email</label>
                 </div>
                 <div class="FormBlock">
-                    <input type="text" class="FormBlock__input" id="Dentist_Password" autocomplete="off" placeholder=" ">
+                    <input type="password" class="FormBlock__input" id="Dentist_Password" autocomplete="off" placeholder=" "
+                        formControlName="contraseña">
                     <label for="Dentist_Password" class="FormBlock__label">Contraseña</label>
                 </div>
                 <div class="FormBlock">
-                    <input type="text" class="FormBlock__input" id="Dentist_Password2" autocomplete="off" placeholder=" ">
+                    <input type="password" class="FormBlock__input" id="Dentist_Password2" autocomplete="off"
+                        placeholder=" " formControlName="contraseña2">
                     <label for="Dentist_Password2" class="FormBlock__label">Contraseña</label>
                 </div>
                 <div class="ButtonBlock">
-                    <input type="submit" value="Registrarse">
+                    <button type="submit"
+                        [disabled]="(!odontologoForm.valid) || odontologoForm.get('contraseña').value != odontologoForm.get('contraseña2').value"
+                        (click)="onSignUp(odontologoForm.value)">
+                        Registrarse
+                    </button>
                 </div>
             </form>
         </div>
         <div class="LabForm__Box" *ngIf="Laboratory()">
-            <form action="" method="post" class="Lab-Form">
+            <form class="Lab-Form" [formGroup]="laboratorioForm">
                 <p>Información Laboratorio: </p>
                 <div class="FormBlock">
-                    <input type="text" class="FormBlock__input" id="Lab_Name" autocomplete="off" placeholder=" ">
+                    <input type="text" class="FormBlock__input" id="Lab_Name" autocomplete="off" placeholder=" "
+                        formControlName="nombre_l">
                     <label for="Lab_Name" class="FormBlock__label">Nombre</label>
                 </div>
                 <div class="FormBlock">
-                    <input type="text" class="FormBlock__input" id="lab_ID" autocomplete="off" placeholder=" ">
+                    <input type="text" class="FormBlock__input" id="lab_ID" autocomplete="off" placeholder=" "
+                        formControlName="nit">
                     <label for="lab_ID" class="FormBlock__label">NIT</label>
                 </div>
                 <div class="FormBlock">
-                    <input type="text" class="FormBlock__input" id="lab_Phone" autocomplete="off" placeholder=" ">
+                    <input type="number" class="FormBlock__input" id="lab_Phone" autocomplete="off" placeholder=" "
+                        formControlName="telefono_l">
                     <label for="lab_Phone" class="FormBlock__label">Telefono</label>
                 </div>
                 <div class="FormBlock">
-                    <input type="text" class="FormBlock__input" id="lab_Direction" autocomplete="off" placeholder=" ">
+                    <input type="text" class="FormBlock__input" id="lab_Direction" autocomplete="off" placeholder=" "
+                        formControlName="direccion_l">
                     <label for="lab_Direction" class="FormBlock__label">Dirección</label>
                 </div>
                 <div class="FormBlock">
-                    <input type="text" class="FormBlock__input" id="lab_Email" autocomplete="off" placeholder=" ">
+                    <input type="email" class="FormBlock__input" id="lab_Email" autocomplete="off" placeholder=" "
+                        formControlName="correo_l">
                     <label for="lab_Email" class="FormBlock__label">Email</label>
                 </div>
                 <p>Información Propietario:</p>
                 <div class="FormBlock">
-                    <input type="text" class="FormBlock__input" id="Owner_name" autocomplete="off" placeholder=" ">
+                    <input type="text" class="FormBlock__input" id="Owner_name" autocomplete="off" placeholder=" "
+                        formControlName="nombre_p">
                     <label for="Owner_name" class="FormBlock__label">nombre</label>
                 </div>
                 <div class="FormBlock">
-                    <input type="text" class="FormBlock__input" id="Owner_ID" autocomplete="off" placeholder=" ">
+                    <input type="number" class="FormBlock__input" id="Owner_ID" autocomplete="off" placeholder=" "
+                        formControlName="cedula_p">
                     <label for="Owner_ID" class="FormBlock__label">CC</label>
                 </div>
                 <div class="FormBlock">
-                    <input type="text" class="FormBlock__input" id="Owner_phone" autocomplete="off" placeholder=" ">
+                    <input type="number" class="FormBlock__input" id="Owner_phone" autocomplete="off" placeholder=" "
+                        formControlName="telefono_p">
                     <label for="Owner_phone" class="FormBlock__label">Telefono</label>
                 </div>
                 <div class="FormBlock">
-                    <input type="text" class="FormBlock__input" id="Owner_email" autocomplete="off" placeholder=" ">
+                    <input type="email" class="FormBlock__input" id="Owner_email" autocomplete="off" placeholder=" "
+                        formControlName="correo_p">
                     <label for="Owner_email" class="FormBlock__label">Email</label>
                 </div>
                 <div class="FormBlock">
-                    <input type="text" class="FormBlock__input" id="Owner_password" autocomplete="off" placeholder=" ">
+                    <input type="password" class="FormBlock__input" id="Owner_password" autocomplete="off" placeholder=" "
+                        formControlName="contraseña">
                     <label for="Owner_password" class="FormBlock__label">Contraseña</label>
                 </div>
                 <div class="FormBlock">
-                    <input type="text" class="FormBlock__input" id="Owner_Password2" autocomplete="off" placeholder=" ">
+                    <input type="password" class="FormBlock__input" id="Owner_Password2" autocomplete="off" placeholder=" "
+                        formControlName="contraseña2">
                     <label for="Owner_Password2" class="FormBlock__label">Contraseña</label>
                 </div>
                 <div class="ButtonBlock">
-                    <input type="submit" value="Registrarse">
+                    <button type="submit"
+                        [disabled]="(!laboratorioForm.valid) || laboratorioForm.get('contraseña').value != laboratorioForm.get('contraseña2').value"
+                        (click)="onSignUp(laboratorioForm.value)">
+                        Registrarse
+                    </button>
                 </div>
             </form>
         </div>

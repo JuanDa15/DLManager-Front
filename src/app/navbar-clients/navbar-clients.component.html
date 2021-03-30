@@ -1,0 +1,30 @@
+<header class="Header">
+    <nav class="Header__Nav">
+        <a (click)="onLogOut()" class="Link__SignUp"><i class="fas fa-sign-out-alt sign-out"></i></a>
+        <a routerLink="/sesionc/navegarc/" class="NameLink"><span class="Navbar__Name">DL MANAGER</span></a>
+        <div class="Navbar__user">
+            <span >Bienvenido Joe Doe</span>
+            <a routerLink="/sesion/editarperfil" ><i class="fas fa-user-circle"></i></a>
+        </div>
+        <ul class="Nav__Responsive">
+            <div class="Nav__responsive-button">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="Nav__ResponsiveContainer">
+                <li class="First-Block">
+                    <span>Bienvenido Joe Doe</span>
+                    <a><i class="fas fa-user-circle"></i></a>
+                </li>
+                <li class="Block">
+                    <a routerLink="/sesionc/navegarc/">Inicio</a>
+                </li>
+                <li class="Block">
+                    <a (click)="onLogOut()" >
+                        <i class="fas fa-sign-in-alt"></i>
+                    </a>
+                </li>
+            </div>
+        </ul>
+    </nav>
+</header>
+<router-outlet></router-outlet>

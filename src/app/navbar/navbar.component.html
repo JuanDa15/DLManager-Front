@@ -1,10 +1,10 @@
 <header class="Header">
         <nav class="Header__Nav">
-            <a href="#" class="Link__SignUp"><i class="fas fa-sign-out-alt sign-out"></i></a>
-            <a href="#" class="NameLink"><span class="Navbar__Name">DL MANAGER</span></a>
+            <a (click)="onLogOut()" class="Link__SignUp"><i class="fas fa-sign-out-alt sign-out"></i></a>
+            <a routerLink="/sesion/navegar/paneloperador" class="NameLink"><span class="Navbar__Name">DL MANAGER</span></a>
             <div class="Navbar__user">
                 <span >Bienvenido Joe Doe</span>
-                <a href="#"><i class="fas fa-user-circle"></i></a>
+                <a routerLink="/sesion/editarperfil" ><i class="fas fa-user-circle"></i></a>
             </div>
             <ul class="Nav__Responsive">
                 <div class="Nav__responsive-button">
@@ -13,25 +13,25 @@
                 <div class="Nav__ResponsiveContainer">
                     <li class="First-Block">
                         <span>Bienvenido Joe Doe</span>
-                        <a href="#"><i class="fas fa-user-circle"></i></a>
+                        <a  routerLink="/sesion/editarperfil"><i class="fas fa-user-circle"></i></a>
                     </li>
                     <li class="Block">
-                        <a href="#">Inicio</a>
+                        <a routerLink="/sesion/navegar/paneloperador">Inicio</a>
                     </li>
                     <li class="Block">
-                        <a href="#">Clientes</a>
+                        <a  routerLink="/sesion/navegar/verclientes">Clientes</a>
                     </li>
                     <li class="Block">
-                        <a href="#">Pedidos</a>
+                        <a routerLink="/sesion/navegar/verpedidos">Pedidos</a>
                     </li>
                     <li class="Block">
-                        <a href="#">Registro de actividades</a>
+                        <a routerLink="/sesion/navegar/log">Registro de actividades</a>
                     </li>
                     <li class="Block">
-                        <a href="#">Ayuda</a>
+                        <a routerLink="/sesion/navegar/ayuda">Ayuda</a>
                     </li>
                     <li class="Block">
-                        <a href="#">
+                        <a (click)="onLogOut()" >
                             <i class="fas fa-sign-in-alt"></i>
                         </a>
                     </li>
@@ -39,3 +39,4 @@
             </ul>
         </nav>
     </header>
+    <router-outlet></router-outlet>

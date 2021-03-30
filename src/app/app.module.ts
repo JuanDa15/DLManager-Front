@@ -23,6 +23,9 @@ import { VerFacturaComponent } from './ver-factura/ver-factura.component';
 import { LabProfileHomeComponent } from './lab-profile-home/lab-profile-home.component';
 import { AsideClientsComponent } from './aside-clients/aside-clients.component';
 import { DenProfileHomeComponent } from './den-profile-home/den-profile-home.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { NavbarClientsComponent } from './navbar-clients/navbar-clients.component';
 
 
 
@@ -48,11 +51,15 @@ import { DenProfileHomeComponent } from './den-profile-home/den-profile-home.com
     VerFacturaComponent,
     LabProfileHomeComponent,
     AsideClientsComponent,
-    DenProfileHomeComponent
+    DenProfileHomeComponent,
+    NavbarClientsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

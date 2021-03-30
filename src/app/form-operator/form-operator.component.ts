@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { environment } from '../../environments/environment.prod';
+import { UpdateopService } from '../services/updateop.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form-operator',
@@ -7,9 +12,48 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormOperatorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router,private update: UpdateopService) { }
+
+  public operatorForm = new FormGroup({
+    nombre: new FormControl('',Validators.required),
+    cedula: new FormControl('',Validators.required),
+    telefono: new FormControl('',Validators.compose([Validators.required,Validators.minLength(7),Validators.maxLength(10)])),
+    correo: new FormControl('',Validators.compose([Validators.required,Validators.email])),
+    cta_1: new FormControl('',Validators.required),
+    cta_2: new FormControl('',Validators.required),
+    nombre_l: new FormControl('',Validators.required),
+    nit_l: new FormControl('',Validators.compose([Validators.required,Validators.maxLength(11)])),
+    telefono_l: new FormControl('',Validators.compose([Validators.required,Validators.minLength(7),Validators.maxLength(10)])),
+    correo_l: new FormControl('',Validators.compose([Validators.required,Validators.email])),
+    direccion_l: new FormControl('',Validators.required),
+    contraseña: new FormControl('',Validators.required),
+    contraseña2: new FormControl('', Validators.required)
+  })
 
   ngOnInit(): void {
   }
 
+  onSignUpOp(form){
+    delete form['contraseña2'];
+    form['key'] = environment.OPE_SIGNIN_KEY;
+    this.update.patchOpe(form).subscribe({
+      next: value => {
+        Swal.fire({
+          title: 'Datos guardados correctamente',
+          icon : 'success',
+          position: 'top-right',
+          timer: 2000
+        })
+        this.router.navigate(['']);
+      },error: err =>{
+        Swal.fire({
+          title: 'Error al guardar los datos',
+          icon: 'error',
+          position: 'top-right',
+          timer:2000
+        })
+        form.reset();
+      }
+    })
+  }
 }

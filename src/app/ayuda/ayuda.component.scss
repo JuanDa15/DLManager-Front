@@ -1,5 +1,7 @@
 @import '../../styles.scss';
 .AyudaContainer{
+    width: 82%;
+    float: right;
     display: flex;
     flex-flow: column nowrap;
 
@@ -27,5 +29,11 @@
 
     p{
         font-weight: 900;
+    }
+}
+
+@media(max-width:800px){
+    .AyudaContainer{
+        width: 100%;
     }
 }

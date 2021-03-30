@@ -1,14 +1,14 @@
 @import '../../styles';
 
 .aside{
-    display: flex;
+    display: inline-flex;
     flex-flow: column nowrap;
-    min-width: 300px;
     background-color: $dark-blue;
     height: calc(100vh - 60px);
     filter: drop-shadow(3px 0px 2px #666);
     margin: 0;
     justify-content: space-between;
+    width: 18%;
 
     ul{
         margin: 0;

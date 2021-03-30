@@ -1,6 +1,7 @@
 @import '../../styles.scss';
 .MainPanel{
-    width: 100%;
+    width: 82%;
+    float: right;
     height: calc(100vh - 60px);
     background-color: "#fff";
     position: relative;
@@ -26,6 +27,17 @@
     display: grid;
     grid-template-columns: repeat(2,1fr);
     grid-template-rows: auto 1fr;
+
+        span{
+
+            &:nth-child(1){
+                cursor: pointer;
+
+                &:hover{
+                    color: $decorator-2;
+                }
+            }
+        }
     }
 
     i{
@@ -85,6 +97,14 @@
         width: 100%;
         border-collapse:collapse;
         background-color: #fff;
+        
+        caption{
+            cursor: pointer;
+
+            &:hover{
+                color: $decorator-2;
+            }
+        }
 
         tr{
             text-align: center;
@@ -101,6 +121,7 @@
 
 @media(max-width:800px){
     .MainPanel{
+        width: 100%;
         grid-template-columns: 1fr;
         grid-template-rows: .5fr 1fr;
     }

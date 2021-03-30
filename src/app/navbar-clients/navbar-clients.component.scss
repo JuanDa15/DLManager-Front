@@ -1,0 +1,214 @@
+@import '../../styles.scss';
+
+.sign-out{
+    margin-left: 1.5rem;
+    font-size: 48px;
+    color: $dark-blue;
+    filter: drop-shadow(1px 1px 3px #666);
+    transition: color .3s ease;
+
+    &:hover{
+        color: $decorator-2;
+    }
+}
+
+.Navbar__Name{
+    font-size: 1.5vmax;
+    font-weight: 900;
+    color: $dark-blue;
+    filter: drop-shadow(2px 2px 1px #666);
+    justify-self: center;
+    transition: color .3s ease;
+
+    &:hover{
+        color: $decorator-2;
+    }
+}
+
+.Navbar__user{
+    width: auto;
+    margin-right: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items : center;
+
+    span{
+        margin-right: .4rem;
+        font-weight: 900;
+        color: #666;
+        font-size: .9rem;
+    }
+
+    i{
+        font-size: 48px;
+        color: $dark-blue;
+        filter: drop-shadow(1px 1px 3px #666);
+
+        transition: color .3s ease;
+
+        &:hover{
+            color: $decorator-2;
+        }
+    }
+}
+
+
+.Nav__Responsive{
+    display: none;
+}
+
+.Header{
+    background: #fff;
+    margin-top: 0;
+    margin: 0;
+}
+    .Header__Nav{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        border-bottom: 1px solid #999;
+        height: 60px;
+        align-items: center;
+        box-shadow: 0 2px 4px #666;
+    }
+
+@media(max-width:800px){
+    .Link__SignUp{
+        display: none;
+    }
+    .Navbar__user{
+        display:none;
+    }
+    
+    .NameLink{
+        margin-left: 1.5rem;
+
+        span{
+            font-size: 1.3rem;
+        }
+    }
+    .sign-out{
+        display: none;
+    }
+
+    .Header{
+        background: #fff;
+    }
+
+    .Nav__ul{
+        display: none;
+    }
+
+    .Nav__Responsive{
+        display: block;
+    }
+        .Nav__responsive-button{
+            font-size: 2.5rem;
+            color: $dark-blue;
+            padding: 6px 12px;
+            filter: drop-shadow(2px 2px 2px #666);
+        }
+
+        .Nav__responsive-button:hover{
+            background: #ffffff11;
+        }
+
+        .Nav__ResponsiveContainer{
+            top: 60px;
+            position: absolute;
+            right:-1000px;
+            font-size: 1.5rem;
+            background: $dark-blue;
+            width: 75%;
+            height: calc(100vh - 60px);
+            text-align: right;
+            transition: all 1s;
+            display:flex;
+            flex-flow: column nowrap;
+            display: none;
+            z-index: 1001;
+
+            .Block{
+                height: 48px;
+                display:flex;
+                align-items: center;
+                justify-content: flex-end;
+                margin-left: 1.5rem;
+                margin-right: 1.5rem;
+                border-radius: .5rem;
+                position:relative;
+
+                &::before{
+                    content: "";
+                    position: absolute;
+                    top:3rem;
+                    height: 1px;
+                    width: 100%;
+                    border-bottom: 1px solid #fff;
+                }
+
+
+                a{
+                    margin: .2rem;
+                    font-size: 1.2rem;
+                    font-weight: 900;
+                    color: #fff;
+                }
+
+                &:nth-child(2){
+                    margin-top: 3rem;
+                }
+
+                &:hover{
+                    background-color: #fffa;
+                    a{
+                        color: $decorator-2;
+                    }
+                }
+            }
+        }
+    
+    .First-Block{
+        margin-top: 2rem;
+        display:flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+
+        span{
+            display:inline-block;
+            width: 100%;
+            margin-left: 1.5rem;
+            font-weight: 900;
+            color: #fff;
+            position:relative;
+            text-align: left;
+
+            &::before{
+                content: "";
+                position: absolute;
+                height:1px;
+                width:100%;
+                border-bottom: 2px solid #fff;
+                margin-top:1.8rem;
+            }
+        }
+        
+        i{
+            margin-right: 1.5rem;
+            margin-top: 1.5rem;
+            font-size: 61px;
+            color: #fff;
+        }
+    }
+    .Nav__Responsive:hover > .Nav__ResponsiveContainer{
+        display: block;
+        right: 0;
+    }
+}
+
+@media(max-width:486px){
+    .Nav__ResponsiveContainer{
+        width: 100%;
+    }
+}

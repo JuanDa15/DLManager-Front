@@ -144,7 +144,7 @@
     display: grid;
     place-items: center center;
 
-    input[type="submit"]{
+    button{
         @include MainButton;
         width: 40%;
         font-weight: 900;

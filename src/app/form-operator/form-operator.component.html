@@ -1,66 +1,68 @@
 <div class="OF-Box">
     <img class="LG"src="../../assets/img/logo_size.jpg" alt="Logo">
     <div class="Form-Container">
-        <form action="" method="post" class="Form">
+        <form class="Form" [formGroup]="operatorForm">
             <img class="Form__img" src="../../assets/img/logo_size.jpg" alt="Logo">
             <p>Bienvenido por favor ingrese sus datos personales:</p>
             <div class="Form__Block">
-                <input type="text" name="name" id="name" placeholder=" " class="Block__input" autocomplete="off">
+                <input type="text" name="name" id="name" placeholder=" " class="Block__input" autocomplete="off" formControlName="nombre">
                 <label for="name" class="Block__label">Nombre</label>
             </div>
             <div class="Form__Block">
-                <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="ID">
+                <input type="number" class="Block__input" placeholder=" " autocomplete="off" id="ID" formControlName="cedula">
                 <label for="ID" class="Block__label">CC</label>
             </div>
             <div class="Form__Block">
-                <input type="text" name="PPhone" id="PPhone" class="Block__input" placeholder=" " autocomplete="off">
+                <input type="tel" name="PPhone" id="PPhone" class="Block__input" placeholder=" " autocomplete="off" formControlName="telefono">
                 <label for="PPhone" class="Block__label">Telefono</label>
             </div>
             <div class="Form__Block">
-                <input type="email" class="Block__input" placeholder=" " id="email" autocomplete="off">
+                <input type="email" class="Block__input" placeholder=" " id="email" autocomplete="off" formControlName="correo">
                 <label for="email" class="Block__label">Email</label>
             </div>
             <div class="Form__Block">
-                <input type="text" class="Block__input" placeholder=" " id="Bank1" autocomplete="off">
+                <input type="number" class="Block__input" placeholder=" " id="Bank1" autocomplete="off" formControlName="cta_1">
                 <label for="Bank1" class="Block__label">Cuenta Bancaria 1</label>
             </div>
             <div class="Form__Block">
-                <input type="password" class="Block__input" id="Bank2" placeholder=" " autocomplete="off">
+                <input type="number" class="Block__input" id="Bank2" placeholder=" " autocomplete="off" formControlName="cta_2">
                 <label for="Bank2" class="Block__label">Cuenta Bancaria 2</label>
             </div>
             <p>Ingrese los datos del laboratorio: </p>
             <div class="Form__Block">
-                <input type="text" name="name_lab" id="name_lab" placeholder=" " class="Block__input" autocomplete="off">
+                <input type="text" name="name_lab" id="name_lab" placeholder=" " class="Block__input" autocomplete="off" formControlName="nombre_l">
                 <label for="name_lab" class="Block__label">Nombre</label>
             </div>
             <div class="Form__Block">
-                <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="ID_lab">
+                <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="ID_lab" formControlName="nit_l">
                 <label for="ID_lab" class="Block__label">NIT</label>
             </div>
             <div class="Form__Block">
-                <input type="text" name="Phone_lab" id="Phone_lab" class="Block__input" placeholder=" " autocomplete="off">
+                <input type="tel" id="Phone_lab" class="Block__input" placeholder=" " autocomplete="off" formControlName="telefono_l">
                 <label for="Phone_lab" class="Block__label">Telefono</label>
             </div>
             <div class="Form__Block">
-                <input type="email" class="Block__input" placeholder=" " id="email_lab" autocomplete="off">
+                <input type="email" class="Block__input" placeholder=" " id="email_lab" autocomplete="off" formControlName="correo_l">
                 <label for="email_lab" class="Block__label">Email</label>
             </div>
             <div class="Form__Block">
-                <input type="text" name="Direction" id="Direction" class="Block__input" placeholder=" " autocomplete="off">
+                <input type="text" name="Direction" id="Direction" class="Block__input" placeholder=" " autocomplete="off" formControlName="direccion_l">
                 <label for="Direction" class="Block__label">Dirección</label>
             </div>
             <div class="Form__Block">
-                <input type="password" class="Block__input" placeholder=" " id="Password" autocomplete="off">
+                <input type="password" class="Block__input" placeholder=" " id="Password" autocomplete="off" formControlName="contraseña">
                 <label for="Password" class="Block__label">Contraseña</label>
             </div>
             <div class="Form__Block">
-                <input type="password" class="Block__input" id="Password2" placeholder=" " autocomplete="off">
+                <input type="password" class="Block__input" id="Password2" placeholder=" " autocomplete="off" formControlName="contraseña2">
                 <label for="password2" class="Block__label">Contraseña</label>
             </div>
             <div class="Form__Button">
-                <button type="submit">
-                    <i class="fas fa-arrow-right"></i>
-                </button>
+                <button type="submit"
+                        [disabled]="(!operatorForm.valid) || operatorForm.get('contraseña').value != operatorForm.get('contraseña2').value"
+                        (click)="onSignUpOp(operatorForm.value)">
+                        Registrarse
+                    </button>
             </div>
         </form>
     </div>

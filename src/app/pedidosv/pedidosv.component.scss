@@ -1,7 +1,8 @@
 @import '../../styles.scss';
 
 .PedidosPanel{
-    width: 100%;
+    width: 82%;
+    float: right;
     height:auto;
     display: grid;
     grid-template-columns: 1fr;
@@ -74,7 +75,8 @@
 }
 
 @media(max-width: 800px){
-    .ClientsPanel{
+    .PedidosPanel{
+        width: 100%;
         a{
             margin-right: 1.5rem;
         }
