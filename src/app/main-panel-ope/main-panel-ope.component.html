@@ -2,7 +2,7 @@
         <div class="UsersCont">
             <span routerLink="/sesion/navegar/verclientes" class="caption">Total de usuarios registrados:</span>
             <i class="fas fa-users"></i>
-            <span class="counter">00</span>
+            <span class="counter">{{usuarios.length}}</span>
         </div>
         <div class="Recents">
             <table>
@@ -12,15 +12,10 @@
                     <th>Fecha</th>
                     <th>Estado</th>
                 </tr>
-                <tr>
-                    <td>11088108</td>
-                    <td>25/01/2021</td>
-                    <td>Pendiente</td>
-                </tr>
-                <tr>
-                    <td>11088108</td>
-                    <td>25/01/2021</td>
-                    <td>Pendiente</td>
+                <tr *ngFor="let pedido of pedidosList">
+                    <td>{{pedido.id_cliente}}</td>
+                    <td>{{pedido.fecha}}</td>
+                    <td>{{pedido.estado}}</td>
                 </tr>
             </table>
         </div>

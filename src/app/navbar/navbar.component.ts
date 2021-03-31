@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { LogoutService } from '../services/logout.service';
 import { TokenmanagerService } from '../services/tokenmanager.service';
-import { environment } from '../../environments/environment.prod';
 
 @Component({
   selector: 'app-navbar',

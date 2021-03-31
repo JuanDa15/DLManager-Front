@@ -5,6 +5,7 @@ import { environment } from '../../environments/environment.prod';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { TokenmanagerService } from '../services/tokenmanager.service';
+import { LogService } from '../services/log.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { TokenmanagerService } from '../services/tokenmanager.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private signinservice: SigninService, private router: Router, private jwtm: TokenmanagerService){}
+  constructor(private signinservice: SigninService, private router: Router, private jwtm: TokenmanagerService, private log: LogService){}
 
   public loginForm = new FormGroup({
     correo : new FormControl('',Validators.compose([Validators.required, Validators.email])),
@@ -33,6 +34,9 @@ export class LoginComponent implements OnInit {
           timer: 2000,
           icon: 'success',
           position: 'top-right'
+        }),
+        this.log.createLog('Inicion de sesion: ' + form['correo']).subscribe({
+          next: value =>{}
         })
         localStorage.setItem('token',value['token']);
         if(this.jwtm.getPermissions() == 1){

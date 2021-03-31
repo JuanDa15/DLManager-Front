@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { environment } from '../../environments/environment.prod';
 import { UpdateopService } from '../services/updateop.service';
 import { Router } from '@angular/router';
+import { LogService } from '../services/log.service';
 
 @Component({
   selector: 'app-opetor-change-pass',
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class OpetorChangePassComponent implements OnInit {
 
-  constructor(private update: UpdateopService, private router: Router) { }
+  constructor(private update: UpdateopService, private router: Router,private log: LogService) { }
 
   public cambiarpassForm = new FormGroup({
     contraseña: new FormControl('',Validators.required),
@@ -33,6 +34,9 @@ export class OpetorChangePassComponent implements OnInit {
           icon: 'success',
           position: 'top-right',
           timer: 2000
+        })
+        this.log.createLog('Cambio de contraseña usuario operador' ).subscribe({
+          next: value =>{}
         })
         this.router.navigate(['/sesion/editarperfil']);
       },

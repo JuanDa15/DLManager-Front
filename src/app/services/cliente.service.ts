@@ -18,7 +18,7 @@ export class ClienteService {
   }
 
   delete(pk){
-    return this.http.patch(environment.backendUrl + 'cliente/' +pk ,{headers: {Authorization: `Bearer ${environment.OPE_SIGNIN_KEY}`}});
+    return this.http.delete(environment.backendUrl + 'cliente/' +pk ,{headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}});
   }
 
   put(body,pk){

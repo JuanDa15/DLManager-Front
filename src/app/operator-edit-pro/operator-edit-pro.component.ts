@@ -5,6 +5,7 @@ import { environment } from '../../environments/environment.prod';
 import { NgxSpinnerService } from 'ngx-spinner';
 import Swal from 'sweetalert2';
 import { TokenmanagerService } from '../services/tokenmanager.service';
+import { LogService } from '../services/log.service';
 
 @Component({
   selector: 'app-operator-edit-pro',
@@ -13,18 +14,18 @@ import { TokenmanagerService } from '../services/tokenmanager.service';
 })
 export class OperatorEditProComponent implements OnInit {
 
-  constructor(private update: UpdateopService,private spinner: NgxSpinnerService, private manager: TokenmanagerService) { }
+  constructor(private update: UpdateopService,private spinner: NgxSpinnerService, private manager: TokenmanagerService,private log:LogService) { }
 
   public opeForm = new FormGroup({
     nombre: new FormControl('',Validators.required),
     cedula: new FormControl('',Validators.required),
-    telefono: new FormControl('',Validators.compose([Validators.required,Validators.minLength(7),Validators.maxLength(10)])),
+    telefono: new FormControl('',Validators.required),
     correo: new FormControl('',Validators.compose([Validators.required,Validators.email])),
     cta_1: new FormControl('',Validators.required),
     cta_2: new FormControl('',Validators.required),
     nombre_l: new FormControl('',Validators.required),
-    nit_l: new FormControl('',Validators.compose([Validators.required,Validators.maxLength(11)])),
-    telefono_l: new FormControl('',Validators.compose([Validators.required,Validators.minLength(7),Validators.maxLength(10)])),
+    nit_l: new FormControl('',Validators.required),
+    telefono_l: new FormControl('',Validators.required),
     correo_l: new FormControl('',Validators.compose([Validators.required,Validators.email])),
     direccion_l: new FormControl('',Validators.required)
   })
@@ -75,6 +76,9 @@ export class OperatorEditProComponent implements OnInit {
             icon: 'success',
             position: 'top-right',
             timer: 2000
+          })
+          this.log.createLog('Modificación Usuario: ' + form['correo']).subscribe({
+            next: value =>{}
           })
         },
         error: err => {

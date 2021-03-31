@@ -3,7 +3,9 @@ import Swal from 'sweetalert2';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ClienteService } from '../services/cliente.service';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { ActivatedRoute} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from '../../environments/environment.prod';
+import { LogService } from '../services/log.service';
 
 @Component({
   selector: 'app-operatoreditclients',
@@ -12,15 +14,17 @@ import { ActivatedRoute} from '@angular/router';
 })
 export class OperatoreditclientsComponent implements OnInit{
 
-  constructor(private cliente:ClienteService,private spinner:NgxSpinnerService,private activatedRoute: ActivatedRoute){}
+  constructor(private cliente:ClienteService,private spinner:NgxSpinnerService,private activatedRoute: ActivatedRoute,private router:Router,private log: LogService){}
 
   id = this.activatedRoute.snapshot.paramMap.get('id');
+  correo = '';
+  contraseña ='';
   
   public odontologoForm = new FormGroup({
     nombre: new FormControl('',Validators.required),
     cedula: new FormControl('',Validators.required),
     correo: new FormControl('',Validators.compose([Validators.required,Validators.email])),
-    telefono: new FormControl('',Validators.compose([Validators.required,Validators.minLength(7),Validators.maxLength(11)])),
+    telefono: new FormControl('',Validators.required),
     direccion: new FormControl('',Validators.required)
   })
 
@@ -62,6 +66,9 @@ export class OperatoreditclientsComponent implements OnInit{
           icon: 'success',
           position: 'top-right',
           timer: 2000
+        }),
+        this.log.createLog('Modificación Usuario: ' + form['correo']).subscribe({
+          next: value =>{}
         })
       },
       error: err =>{
@@ -86,14 +93,30 @@ export class OperatoreditclientsComponent implements OnInit{
     }).then((result)=>{
       this.cliente.patch({'visible': 0},this.id).subscribe({
         next: value => {
-          console.log(value);
+          Swal.fire({
+            position: 'top-right',
+            icon: 'success',
+            title: 'Oculto satisfactoriamente',
+            timer: 2000
+          })
+          this.log.createLog('Ocultar Usuario: ' + this.id).subscribe({
+            next: value =>{}
+          })
         },
         error: err =>{
-          console.log(err);
+          Swal.fire({
+            position: 'top-right',
+            icon: 'error',
+            title: 'Error al ocultar usuario',
+            timer: 2000
+          })
         }
       })
     })
   }
+
+
+  
 
   showAlert(){
     Swal.fire({
@@ -106,32 +129,66 @@ export class OperatoreditclientsComponent implements OnInit{
       showCloseButton:true
     }).then((result)=>{
       if(result.isConfirmed){
-        Swal.fire({
-          imageUrl: '../../assets/img/logo_size.jpg',
-          imageWidth: 150,
-          imageHeight: 150,
-          imageAlt: 'Logo',
-          title: 'Ingrese las credenciales de super usuario',
-          html:
-          '<input id="swal-input1" class="swal2-input" placeholder="Correo">' +
-          '<input id="swal-input2" class="swal2-input" placeholder="Contraseña">',
-          confirmButtonText: 'Borrar',
-          confirmButtonColor: '#0F7CDB',
-          showDenyButton:true,
-          denyButtonText:'Cancelar',
-          denyButtonColor: '#0F7CDB',
-        })
+        this.getCrendential();
       }
     })
   }
 
-  HideClient(){
-    Swal.fire({
-      position: 'top-end',
-      icon: 'success',
-      title: 'Oculto satisfactoriamente',
-      showConfirmButton: false,
-      timer: 1500
+  async getCrendential(){
+    const { value: formValues } = await   Swal.fire({
+      imageUrl: '../../assets/img/logo_size.jpg',
+      imageWidth: 150,
+      imageHeight: 150,
+      imageAlt: 'Logo',
+      title: 'Ingrese las credenciales de super usuario',
+      confirmButtonText: 'Borrar',
+      confirmButtonColor: '#0F7CDB',
+      showDenyButton:true,
+      denyButtonText:'Cancelar',
+      denyButtonColor: '#0F7CDB',
+      html:
+      '<input id="swal-input1" class="swal2-input" placeholder="Correo">' +
+      '<input id="swal-input2" class="swal2-input" placeholder="Contraseña">',
+      focusConfirm: false,
+      preConfirm: () => {
+        return [
+          document.getElementById('swal-input1')['value'],
+          document.getElementById('swal-input2')['value']
+        ]
+      }
     })
+    if (formValues) {
+      this.correo = formValues[0];
+      this.contraseña = formValues[1];
+
+      if(this.correo == environment.DEFAULT_SU_EMAIL){
+        if(this.contraseña == environment.DEFAULT_SU_PASSWORD){
+          this.cliente.delete(this.id).subscribe({
+            next: value =>{
+              Swal.fire({
+                position: 'top-right',
+                icon: 'success',
+                title: 'Eliminado satisfactoriamente',
+                timer: 2000
+              })
+              this.log.createLog('Eliminar Usuario: ' + this.id).subscribe({
+                next: value =>{}
+              }),
+              this.router.navigate(['sesion/navegar/verclientes']);
+            },
+            error: err =>{
+              Swal.fire({
+                position: 'top-right',
+                icon: 'success',
+                title: 'Error al eliminar usuario',
+                timer: 2000
+              })
+              this.router.navigate(['sesion/navegar/verclientes'])
+            }
+          })
+        }
+      }
+    }
   }
+
 }

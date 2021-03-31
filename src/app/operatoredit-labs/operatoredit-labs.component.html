@@ -2,23 +2,23 @@
     <h1>Clientes > Editar datos</h1>
     <form class="form" [formGroup]="laboratorioForm" >
         <div class="FormBlock">
-            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="name" formControlName="nombre">
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="name" formControlName="nombre_l">
             <label for="name" class="Block__label">Nombre</label>
         </div>
         <div class="FormBlock">
-            <input type="number" class="Block__input" placeholder=" " autocomplete="off" id="ID" formControlName="nit">
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="ID" formControlName="nit">
             <label for="ID" class="Block__label">NIT</label>
         </div>
         <div class="FormBlock">
-            <input type="email" class="Block__input" placeholder=" " autocomplete="off" id="Email" formControlName="correo">
+            <input type="email" class="Block__input" placeholder=" " autocomplete="off" id="Email" formControlName="correo_l">
             <label for="Email" class="Block__label">Email</label>
         </div>
         <div class="FormBlock">
-            <input type="tel" class="Block__input" placeholder=" " autocomplete="off" id="phone" formControlName="telefono">
+            <input type="tel" class="Block__input" placeholder=" " autocomplete="off" id="phone" formControlName="telefono_l">
             <label for="phone" class="Block__label">teléfono</label>
         </div>
         <div class="FormBlock">
-            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="Direction" formControlName="direccion">
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="Direction" formControlName="direccion_l">
             <label for="Direction" class="Block__label">Dirección</label>
         </div>
         <div class="FormBlock">
@@ -29,24 +29,24 @@
         </div>
         <span>Propietario: </span>
         <div class="FormBlock">
-            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="nameP">
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="nameP" formControlName="nombre_p">
             <label for="nameP" class="Block__label">Nombre</label>
         </div>
         <div class="FormBlock">
-            <input type="number" class="Block__input" placeholder=" " autocomplete="off" id="IDP">
+            <input type="number" class="Block__input" placeholder=" " autocomplete="off" id="IDP" formControlName="cedula_p">
             <label for="IDP" class="Block__label">CC</label>
         </div>
         <div class="FormBlock">
-            <input type="email" class="Block__input" placeholder=" " autocomplete="off" id="EmailP">
+            <input type="email" class="Block__input" placeholder=" " autocomplete="off" id="EmailP" formControlName="correo_p">
             <label for="EmailP" class="Block__label">Email</label>
         </div>
         <div class="FormBlock">
-            <input type="tel" class="Block__input" placeholder=" " autocomplete="off" id="phoneP">
+            <input type="tel" class="Block__input" placeholder=" " autocomplete="off" id="phoneP" formControlName="telefono_p">
             <label for="phoneP" class="Block__label">teléfono</label>
         </div>
         <div class="ButtonsBlock">
             <a class="delete" (click)="showAlert()"><i class="fas fa-trash"></i></a>
-            <a class="hide" (click)="HideClient()"><i class="fas fa-eye"></i></a>
+            <a class="hide" (click)="onHide()"><i class="fas fa-eye"></i></a>
             <a routerLink="/sesion/navegar/verclientes" class="cancel"><i class="fas fa-times"></i></a>
             <button type="submit" class="save" [disabled]="!laboratorioForm.valid" (click)="onUpdate(laboratorioForm.value)">
                 <i class="fas fa-check"></i>

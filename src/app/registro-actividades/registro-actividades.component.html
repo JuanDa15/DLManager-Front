@@ -1,6 +1,6 @@
 <div class="RegistroAPanel">
     <h1>Registro Actividades</h1>
-    <input type="text" placeholder="Ingrese id cliente">
+    <input type="text" placeholder="Ingrese CC ó NIT">
 
     <div class="tableContainer">
         <table>
@@ -10,23 +10,11 @@
                 <th>Fecha y hora</th>
                 <th>Descripción</th>
             </tr>
-            <tr>
-                <td>2278282</td>
-                <td>1088255272</td>
-                <td>25/11/2021   8:00</td>
-                <td>modifico informacion</td>
-            </tr>
-            <tr>
-                <td>2278282</td>
-                <td>1088255272</td>
-                <td>25/11/2021   8:00</td>
-                <td>modifico informacion</td>
-            </tr>
-            <tr>
-                <td>2278282</td>
-                <td>1088255272</td>
-                <td>25/11/2021   8:00</td>
-                <td>modifico informacion</td>
+            <tr *ngFor="let log of logList">
+                <td>{{log.pk}}</td>
+                <td>{{log.id_cliente}}</td>
+                <td>{{log.fecha}} {{log.hora}}</td>
+                <td>{{log.descripcion}}</td>
             </tr>
         </table>
     </div>

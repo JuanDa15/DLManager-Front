@@ -1,6 +1,6 @@
 <div class="editBox">
     <div class="Header">
-        <h1>Factura No. <span>000001</span></h1>
+        <h1>Factura No. <span>{{idFactura}}</span></h1>
         <a routerLink="/sesion/navegar/verpedidos"><i class="far fa-times-circle"></i></a>
     </div>
     <form class="form"  [formGroup]="facturaForm">
@@ -10,7 +10,7 @@
             <label for="name" class="Block__label">Nombre</label>
         </div>
         <div class="FormBlock">
-            <input type="number" class="Block__input" placeholder=" " autocomplete="off" id="ID" readonly formControlName="id">
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="ID" readonly formControlName="id">
             <label for="ID" class="Block__label">ID</label>
         </div>
         <div class="FormBlock">
@@ -23,11 +23,11 @@
         </div>
         <span>Producto: </span>
         <div class="FormBlock">
-            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="Pname" readonly formControlName="nombre_p">
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="Pname" readonly formControlName="id_producto">
             <label for="Pname" class="Block__label">Nombre Producto</label>
         </div>
         <div class="FormBlock">
-            <textarea class="Block__input" placeholder=" " autocomplete="off" id="comment" readonly formControlName="comentario"></textarea>
+            <textarea class="Block__input" placeholder=" " autocomplete="off" id="comment" readonly formControlName="comentarios"></textarea>
             <label for="comment" class="Block__label">Comentario extra:</label>
         </div>
         <span>Extras: </span>

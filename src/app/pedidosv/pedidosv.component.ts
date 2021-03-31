@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PedidosService } from '../services/pedidos.service';
+import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-pedidosv',
@@ -8,30 +11,38 @@ import { PedidosService } from '../services/pedidos.service';
 })
 export class PedidosvComponent implements OnInit {
 
-  constructor(private pedidos: PedidosService) { }
+  constructor(private pedidos: PedidosService, private router:Router,private spinner: NgxSpinnerService) { }
 
+  pedidosList = []
   ngOnInit(): void {
+    this.spinner.show()
+    this.getPedidos()
   }
 
-  // getClientes(){
-  //   this.pedidos.get().subscribe({
-  //     next: value =>{
-  //       console.log(value);
-        // let laborarios = value['data']['laboratorios'];
-        // let odontologos = value['data']['odontologos'];
+  getPedidos(){
+    this.pedidos.get().subscribe({
+      next: value =>{
+        let pedidos_list = value['data']
 
-        // for (var i in laborarios) {
-        //   this.usuarios.push(laborarios[i]['fields']);
-        // }
-        // for (var i in odontologos) {
-        //   this.usuarios.push(odontologos[i]['fields']);
-        // }
-        // this.spinner.hide();
-    //   },
-    //   error: err =>{
-    //     console.log(err.error);
-    //     // this.spinner.hide();
-    //   }
-    // })
-  // }
+        for (var i in pedidos_list) {
+          pedidos_list[i]['fields']['pk'] = pedidos_list[i]['pk']; 
+          this.pedidosList.push(pedidos_list[i]['fields']);
+        }
+        this.spinner.hide();
+      },
+      error: err =>{
+        Swal.fire({
+          title: 'error al cargar información',
+          icon: 'error',
+          position: 'top-right',
+          timer: 2000
+        })
+        this.spinner.hide();
+      }
+    })
+  }
+
+  onSee(id){
+    this.router.navigate(['/sesion/verpedido/',{id:id}]);
+  }
 }
