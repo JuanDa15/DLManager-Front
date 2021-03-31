@@ -12,9 +12,14 @@ export class RegistroActividadesComponent implements OnInit {
   constructor(private log:LogService) { }
 
   logList = [];
+  logListFiltrada = [];
 
   ngOnInit(): void {
     this.getLog();
+  }
+
+  updateFilter(filtro){
+    this.logListFiltrada = this.logList.filter(obj => obj.id_cliente.includes(filtro) );
   }
 
   getLog(){
@@ -25,6 +30,7 @@ export class RegistroActividadesComponent implements OnInit {
           logs[i]['fields']['pk'] = logs[i]['pk'];
           this.logList.push(logs[i]['fields'])
         }
+        this.logListFiltrada = this.logList;
       },
       error: err =>{
         Swal.fire({
@@ -36,6 +42,4 @@ export class RegistroActividadesComponent implements OnInit {
       }
     })
   }
-
-
 }

@@ -13,7 +13,9 @@ export class PedidosvComponent implements OnInit {
 
   constructor(private pedidos: PedidosService, private router:Router,private spinner: NgxSpinnerService) { }
 
-  pedidosList = []
+  pedidosList = [];
+  pedidosFiltrados = [];
+
   ngOnInit(): void {
     this.spinner.show()
     this.getPedidos()
@@ -22,12 +24,13 @@ export class PedidosvComponent implements OnInit {
   getPedidos(){
     this.pedidos.get().subscribe({
       next: value =>{
-        let pedidos_list = value['data']
+        let pedidos_list = value['data'];
 
         for (var i in pedidos_list) {
           pedidos_list[i]['fields']['pk'] = pedidos_list[i]['pk']; 
           this.pedidosList.push(pedidos_list[i]['fields']);
         }
+        this.pedidosFiltrados = this.pedidosList;
         this.spinner.hide();
       },
       error: err =>{
@@ -40,6 +43,10 @@ export class PedidosvComponent implements OnInit {
         this.spinner.hide();
       }
     })
+  }
+
+  updateFilter(filtro){
+    this.pedidosFiltrados = this.pedidosList.filter(obj => { if(obj.id_cliente != undefined) { return obj.id_cliente.includes(filtro) }});
   }
 
   onSee(id){

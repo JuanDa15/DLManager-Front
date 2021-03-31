@@ -1,6 +1,6 @@
 <div class="PedidosPanel">
     <h1>Pedidos</h1>
-    <input type="text" placeholder="Ingrese CC ó NIT">
+    <input type="text" placeholder="Ingrese CC ó NIT" (input)="updateFilter($event.target.value)">
 
     <div class="tableContainer">
         <table>
@@ -13,7 +13,7 @@
                 <th>Estado</th>
                 <th> </th>
             </tr>
-            <tr *ngFor="let pedido of pedidosList">
+            <tr *ngFor="let pedido of pedidosFiltrados">
                 <td>{{pedido.pk}}</td>
                 <td>{{pedido.id_cliente}}</td>
                 <td>{{pedido.id_producto}}</td>

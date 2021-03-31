@@ -15,6 +15,8 @@ export class ClientsVComponent implements OnInit {
 
   usuarios = [];
 
+  usuariosFiltrados = [];
+
   ngOnInit(): void {
     this.spinner.show();
     this.getClientes();
@@ -34,7 +36,10 @@ export class ClientsVComponent implements OnInit {
     }else{
       this.router.navigate(['/sesion/editarclientelab/',{id:id}]);
     }
-    
+  }
+  
+  updateFilter(filtro){
+    this.usuariosFiltrados = this.usuarios.filter(obj => { if(obj.nit != undefined) { return obj.nit.includes(filtro) } else { return obj.cedula.includes(filtro)}})
   }
 
   getClientes(){
@@ -58,6 +63,7 @@ export class ClientsVComponent implements OnInit {
             }
           }
         }
+        this.usuariosFiltrados = this.usuarios;
         this.spinner.hide();
       },
       error: err =>{

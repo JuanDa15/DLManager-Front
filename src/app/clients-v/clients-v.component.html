@@ -1,6 +1,6 @@
 <div class="ClientsPanel">
     <h1>Clientes</h1>
-    <input type="text" placeholder="Ingrese CC ó NIT">
+    <input type="text" placeholder="Ingrese CC ó NIT" (input)="updateFilter($event.target.value)">
 
     <div class="tableContainer">
         <table>
@@ -11,7 +11,7 @@
                 <th>Tipo</th>
                 <th> </th>
             </tr>
-            <tr *ngFor="let usuario of usuarios">
+            <tr *ngFor="let usuario of usuariosFiltrados">
                 <td>{{usuario.nombre}}</td>
                 <td>{{usuario.nit || usuario.cedula}}</td>
                 <td>{{usuario.correo}}</td>

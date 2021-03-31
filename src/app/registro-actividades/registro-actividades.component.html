@@ -1,6 +1,6 @@
 <div class="RegistroAPanel">
     <h1>Registro Actividades</h1>
-    <input type="text" placeholder="Ingrese CC ó NIT">
+    <input type="text" placeholder="Ingrese CC ó NIT" (input)="updateFilter($event.target.value)">
 
     <div class="tableContainer">
         <table>
@@ -10,7 +10,7 @@
                 <th>Fecha y hora</th>
                 <th>Descripción</th>
             </tr>
-            <tr *ngFor="let log of logList">
+            <tr *ngFor="let log of logListFiltrada">
                 <td>{{log.pk}}</td>
                 <td>{{log.id_cliente}}</td>
                 <td>{{log.fecha}} {{log.hora}}</td>
