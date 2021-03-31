@@ -1,22 +1,22 @@
 <div class="MainPanel">
-        <div class="UsersCont">
-            <span routerLink="/sesion/navegar/verclientes" class="caption">Total de usuarios registrados:</span>
-            <i class="fas fa-users"></i>
-            <span class="counter">{{usuarios.length}}</span>
-        </div>
-        <div class="Recents">
-            <table>
-                <caption routerLink="/sesion/navegar/verpedidos" class="caption">Pedidos Recientes:</caption>
-                <tr>
-                    <th>ID</th>
-                    <th>Fecha</th>
-                    <th>Estado</th>
-                </tr>
-                <tr *ngFor="let pedido of pedidosList">
-                    <td>{{pedido.id_cliente}}</td>
-                    <td>{{pedido.fecha}}</td>
-                    <td>{{pedido.estado}}</td>
-                </tr>
-            </table>
-        </div>
+    <div class="UsersCont">
+        <span routerLink="/sesion/navegar/verclientes" class="caption">Total de usuarios registrados:</span>
+        <i class="fas fa-users"></i>
+        <span class="counter">{{usuarios.length}}</span>
+    </div>
+    <div class="Recents">
+        <table>
+            <caption routerLink="/sesion/navegar/verpedidos" class="caption">Pedidos Recientes:</caption>
+            <tr>
+                <th>ID</th>
+                <th>Fecha</th>
+                <th>Estado</th>
+            </tr>
+            <tr *ngFor="let pedido of pedidosList">
+                <td>{{pedido.id_cliente}}</td>
+                <td>{{pedido.fecha}}</td>
+                <td>{{pedido.estado}}</td>
+            </tr>
+        </table>
+    </div>
 </div>

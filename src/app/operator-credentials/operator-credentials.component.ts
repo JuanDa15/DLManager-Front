@@ -13,17 +13,17 @@ import { TokenmanagerService } from '../services/tokenmanager.service';
 })
 export class OperatorCredentialsComponent implements OnInit {
 
-  constructor(private signinservice: SigninService, private router: Router,private jwtm: TokenmanagerService){}
+  constructor(private signinservice: SigninService, private router: Router, private jwtm: TokenmanagerService) { }
 
   public credentialsForm = new FormGroup({
-    correo : new FormControl('',Validators.compose([Validators.required, Validators.email])),
-    contraseña: new FormControl('',Validators.required)
+    correo: new FormControl('', Validators.compose([Validators.required, Validators.email])),
+    contraseña: new FormControl('', Validators.required)
   });
 
   ngOnInit(): void {
   }
 
-  onSignIn(form){
+  onSignIn(form) {
     form['signin_key'] = environment.ODT_SIGNIN_KEY;
     this.signinservice.post(form).subscribe({
       next: value => {
@@ -33,14 +33,14 @@ export class OperatorCredentialsComponent implements OnInit {
           icon: 'success',
           position: 'top-right'
         })
-        localStorage.setItem('token',value['token']);
-        if(this.jwtm.getPermissions() == 1){
+        localStorage.setItem('token', value['token']);
+        if (this.jwtm.getPermissions() == 1) {
           this.router.navigate(['sesionc/navegarc/panellaboratorio']);
         }
-        if(this.jwtm.getPermissions() == 2){
+        if (this.jwtm.getPermissions() == 2) {
           this.router.navigate(['sesionc/navegarc/panelodontologo']);
         }
-        if(this.jwtm.getPermissions() == 3){
+        if (this.jwtm.getPermissions() == 3) {
           this.router.navigate(['/operadorform']);
         }
       },

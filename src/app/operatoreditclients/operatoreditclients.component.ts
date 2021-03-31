@@ -102,6 +102,7 @@ export class OperatoreditclientsComponent implements OnInit{
           this.log.createLog('Ocultar Usuario: ' + this.id).subscribe({
             next: value =>{}
           })
+          this.router.navigate(['/sesion/navegar/verclientes']);
         },
         error: err =>{
           Swal.fire({
@@ -174,7 +175,7 @@ export class OperatoreditclientsComponent implements OnInit{
               this.log.createLog('Eliminar Usuario: ' + this.id).subscribe({
                 next: value =>{}
               }),
-              this.router.navigate(['sesion/navegar/verclientes']);
+              this.router.navigate(['/sesion/navegar/verclientes']);
             },
             error: err =>{
               Swal.fire({
@@ -183,7 +184,7 @@ export class OperatoreditclientsComponent implements OnInit{
                 title: 'Error al eliminar usuario',
                 timer: 2000
               })
-              this.router.navigate(['sesion/navegar/verclientes'])
+              this.router.navigate(['/sesion/navegar/verclientes'])
             }
           })
         }

@@ -23,7 +23,9 @@ export class NavbarComponent implements OnInit {
       next: value => {
         Swal.fire({
           title : 'Sesión cerrada correctamente',
-          icon : 'success'
+          icon : 'success',
+          position: 'top-right',
+          timer: 2000
         })
         localStorage.removeItem('token');
         this.router.navigate(['']);
@@ -31,7 +33,9 @@ export class NavbarComponent implements OnInit {
       error: err => {
         Swal.fire({
           title: 'Tu sesion a expirado',
-          icon: 'error'
+          icon: 'error',
+          position:'top-right',
+          timer: 2000
         })
         localStorage.removeItem('token');
         this.router.navigate(['']);

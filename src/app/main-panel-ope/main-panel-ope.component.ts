@@ -47,14 +47,23 @@ export class MainPanelOpeComponent implements OnInit {
   onGetUser(){
     this.usuariost.get().subscribe({
       next: value =>{
-        let laborarios = value['data']['laboratorios'];
+        let laboratorios = value['data']['laboratorios'];
         let odontologos = value['data']['odontologos'];
+        let visibilidad = value['data']['visibilidad'];
 
-        for (var i in laborarios) {
-          this.usuarios.push(laborarios[i]['fields']);
+        for (var i in laboratorios){
+          if (visibilidad.find((val) => {return val.pk == laboratorios[i]['fields']['correo'];})){
+            if (visibilidad.find((val) => {return val.pk == laboratorios[i]['fields']['correo'];})['fields']['visible'] == 1){
+              this.usuarios.push(laboratorios[i]['fields']);
+            }
+          }
         }
         for (var i in odontologos) {
-          this.usuarios.push(odontologos[i]['fields']);
+          if (visibilidad.find((val) => {return val.pk == odontologos[i]['fields']['correo'];})){
+            if (visibilidad.find((val) => {return val.pk == odontologos[i]['fields']['correo'];})['fields']['visible'] == 1){
+              this.usuarios.push(odontologos[i]['fields']);
+            }
+          }
         }
         this.spinner.hide();
       },

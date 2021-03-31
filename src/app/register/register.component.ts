@@ -88,7 +88,8 @@ export class RegisterComponent implements OnInit{
         Swal.fire({
           title: 'Usuario Creado exitosamente',
           icon: 'success',
-          position: 'top-right' 
+          position: 'top-right',
+          timer: 2000
         })
         this.router.navigate(['']);
       },
@@ -96,7 +97,8 @@ export class RegisterComponent implements OnInit{
         Swal.fire({
           title: err.error.detail,
           icon: 'error',
-          position: 'top-right'
+          position: 'top-right',
+          timer: 2000
         })
         form.reset();
       }

@@ -5,28 +5,24 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.component.html',
-  styleUrls: ['./forgot-password.component.scss']
+  styleUrls: ['./forgot-password.component.scss'],
 })
-
-export class ForgotPasswordComponent implements OnInit{
-
-  constructor(){}
+export class ForgotPasswordComponent implements OnInit {
+  constructor() {}
 
   public forgotform = new FormGroup({
-    correo: new FormControl('',Validators.compose([Validators.required,Validators.email]))
-  })
-  
-  ngOnInit(){
+    correo: new FormControl('',Validators.compose([Validators.required, Validators.email])
+    ),
+  });
 
-  }
+  ngOnInit() {}
 
-  sendPass(form){
+  sendPass(form) {
     Swal.fire({
       title: 'Correo Enviado',
-      icon:'success',
-      position:'top-right',
-      timer: 2000
-    })
-
+      icon: 'success',
+      position: 'top-right',
+      timer: 2000,
+    });
   }
 }

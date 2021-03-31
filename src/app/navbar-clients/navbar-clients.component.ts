@@ -6,35 +6,35 @@ import { LogoutService } from '../services/logout.service';
 @Component({
   selector: 'app-navbar-clients',
   templateUrl: './navbar-clients.component.html',
-  styleUrls: ['./navbar-clients.component.scss']
+  styleUrls: ['./navbar-clients.component.scss'],
 })
 export class NavbarClientsComponent implements OnInit {
+  constructor(private loguotservice: LogoutService, private router: Router) {}
 
-  constructor(private loguotservice: LogoutService, private router:Router){}
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
-
-  onLogOut(){
+  onLogOut() {
     this.loguotservice.get().subscribe({
-      next: value => {
+      next: (value) => {
         Swal.fire({
-          title : 'Sesión cerrada correctamente',
-          icon : 'success'
-        })
+          title: 'Sesión cerrada correctamente',
+          icon: 'success',
+          position:'top-right',
+          timer: 2000
+        });
         localStorage.removeItem('token');
         this.router.navigate(['']);
       },
-      error: err => {
+      error: (err) => {
         Swal.fire({
           title: 'Tu sesion a expirado',
-          icon: 'error'
-        })
+          icon: 'error',
+          position: 'top-right',
+          timer: 2000
+        });
         localStorage.removeItem('token');
         this.router.navigate(['']);
-      }
+      },
     });
   }
-
 }
-
