@@ -1,15 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-ayuda',
   templateUrl: './ayuda.component.html',
   styleUrls: ['./ayuda.component.scss']
 })
-export class AyudaComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class AyudaComponent{
 }
