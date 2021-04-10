@@ -1,0 +1,41 @@
+<div class="ProfileBox">
+    <div class="profileHeader">
+        <i class="fas fa-user-circle"></i>
+        <span>Editar Perfil</span>
+    </div>
+    <form class="form" [formGroup]="odtForm">
+        <div class="formBlock">
+            <input class="Block__input" type="text" id="Name" placeholder=" " autocomplete="off"
+                formControlName="nombre">
+            <label class="Block__label" for="Name">Nombre</label>
+        </div>
+        <div class="formBlock">
+            <input class="Block__input" type="number" id="ID" placeholder=" " autocomplete="off"
+                formControlName="cedula">
+            <label class="Block__label" for="ID">CC</label>
+        </div>
+        <div class="formBlock">
+            <input class="Block__input" type="tel" id="Phone" placeholder=" " autocomplete="off"
+                formControlName="telefono">
+            <label class="Block__label" for="Phone">Telefono</label>
+        </div>
+        <div class="formBlock">
+            <input class="Block__input" type="email" id="Email" placeholder=" " autocomplete="off"
+                formControlName="correo">
+            <label class="Block__label" for="Email">Correo</label>
+        </div>
+        <div class="formBlock">
+            <input class="Block__input" type="text" id="address" placeholder=" " autocomplete="off"
+                formControlName="direccion_l">
+            <label class="Block__label" for="address">Dirección</label>
+        </div>
+        <div class="ButtonsBlock">
+            <a class="change" routerLink="/sesionc/cambiarcontraseñac">Cambiar Contraseña</a>
+            <a routerLink="/sesionc/eliminarcuenta"class="deleteAccount">Eliminar Cuenta</a>
+            <a class="cancel" routerLink="/sesionc/navegarc"><i class="fas fa-times"></i></a>
+            <button type="submit" class="save" [disabled]="!odtForm.valid" (click)="onUpdate(odtForm.value)">
+                <i class="far fa-save"></i>
+            </button>
+        </div>
+    </form>
+</div>

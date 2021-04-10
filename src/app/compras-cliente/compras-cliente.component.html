@@ -1,0 +1,25 @@
+<div class="PedidosPanel">
+    <h1>Mis compras</h1>
+    <input type="text" placeholder="Ingrese No pedido" (input)="updateFilter($event.target.value)">
+
+    <div class="tableContainer">
+        <table>
+            <tr>
+                <th>ID pedido</th>
+                <th>ID Producto</th>
+                <th>Fecha</th>
+                <th>Valor</th>
+                <th>Estado</th>
+                <th> </th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <th>5</th>
+                <td><i routerLink="/sesionc/compra" class="far fa-edit"></i></td>
+            </tr>
+        </table>
+    </div>
+</div>

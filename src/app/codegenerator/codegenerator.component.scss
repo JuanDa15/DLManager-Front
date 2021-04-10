@@ -1,0 +1,168 @@
+@import '../../styles.scss';
+
+.codePanel{
+    width: 82%;
+    float: right;
+    display: grid;
+    place-items: center;
+
+    h1{
+        font-weight: 900;
+        display: inline-block;
+        width: 60%;
+        text-align: left;
+        position: relative;
+        margin-top: 2.8rem;
+        color: $decorator-2;
+        text-align: center;
+
+        &::before{
+            content: "";
+            position: absolute;
+            top: 2.3rem;
+            right: 0;
+            height: 1px;
+            width: 100%;
+            border-bottom: 2px solid $decorator-2;
+        }
+    }
+
+    p{
+        color: #333;
+        font-weight: 900;
+    }
+
+    .I1{
+        margin-bottom: 0;
+    }
+
+    .advertencia{
+        margin: 0;
+        font-size: .8rem;
+        margin-top: .5rem;
+        color: rgb(216, 48, 48);
+        font-weight: 900;
+    }
+
+
+
+
+    form{
+        margin-top: 8rem;
+        display: flex;
+        flex-flow: column nowrap;
+        width: 60%;
+        margin-left: 1.5rem;
+        display: grid;
+        place-items: center;
+    }
+}
+
+.Form__Block{
+    position: relative;
+    width: 60%;
+    margin: 1rem 0;
+}
+
+.Block__input{
+    @include fieldDecoration;
+    width: 100%;
+}
+
+.Block__label{
+    @include labelEdited;
+}
+
+.Block__input:focus ~ .Block__label,
+.Block__input:not(:placeholder-shown).Block__input:not(:focus)~ .Block__label {
+    @include LabelAnimation;
+}
+
+
+.Form__Button{
+    @include MainButton;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.CodeBox{
+    width: 40%;
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: rgb(255, 246, 255);
+    border-radius: .5rem;
+    border: 1px solid $shadows;
+    filter: drop-shadow(1px 1px 2px $shadows);
+
+    span:nth-child(1){
+        font-size: 1.8rem;
+        font-weight: 900;
+        color: $decorator-2;
+        margin: 1rem 0;
+        margin-left: .3rem;
+    }
+
+    span:nth-child(3){
+        font-size: 3rem;
+        margin: 1.5rem auto;
+        font-weight: 900;
+        text-transform: uppercase;
+        color: #333;
+    }
+
+    hr{
+        height: 1px;
+        width: 100%;
+        color: $decorator-2;
+    }
+}
+
+@media(max-width: 800px){
+    .codePanel{
+        width: 100%;
+
+        h1{
+            font-size: 1.5rem;
+        }
+
+        p{
+            display: inline-block;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .I1{
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .advertencia{
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+
+        form{
+            width: 90%;
+            margin: 5rem auto 0 auto;
+        }
+    }
+
+    .CodeBox{
+        margin-top: 4rem;
+        width: 80%;
+    }
+
+    .Form__Block{
+        width: 80%;
+    }
+}
+
+@media  screen  and (max-width: 486px){
+
+}

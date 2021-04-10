@@ -1,0 +1,304 @@
+@import '../../styles.scss';
+
+.ProfileBox{
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 5.3rem 1fr;
+    border: 1px solid #999;
+    box-shadow: 0px 0px 4px #666;
+}
+
+.profileHeader{
+    grid-column: 1/6;
+    grid-row: 1/2;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin: 0 1.3rem;
+
+    i{
+        font-size: 4rem;
+        margin: 1.5rem 0;
+        color: $dark-blue;
+    }
+
+    span{
+        font-weight: 900;
+        font-size: 1.5rem;
+        display: inline-block;
+        width: 100%;
+        text-align: right;
+        position: relative;
+        margin-top: 2.8rem;
+        color: $decorator-2;
+
+        &::before{
+            content: "";
+            position: absolute;
+            top: 1.6rem;
+            right: 0;
+            height: 1px;
+            width: 100%;
+            border-bottom: 2px solid $decorator-2;
+        }
+    }
+}
+
+.form{
+    grid-column: 2/6;
+    grid-row: 2/3;
+    display: grid;
+    grid-template-rows: repeat(4,auto) 60px auto;
+    grid-template-columns: repeat(4,1fr);
+
+    span{
+        color: $decorator-2;
+        font-weight: 900;
+        grid-column: 1/5;
+        grid-row: 5/6;
+        font-size: 1.1rem;
+    }
+}
+
+.formBlock{
+    position: relative;    
+    margin: 1rem 0;
+    margin-right: 1.3rem;
+
+    &:nth-child(1){
+        grid-column: 1/5;
+        grid-row: 1/2;
+    }
+
+    &:nth-child(2){
+        grid-column: 1/3;
+        grid-row-gap: 2/3;
+    }
+
+    &:nth-child(3){
+        grid-column: 3/5;
+        grid-row: 2/3;
+    }
+
+    &:nth-child(4){
+        grid-column: 1/5;
+        grid-row: 3/4;
+    }
+
+    &:nth-child(5){
+        grid-column: 1/5;
+        grid-row-gap: 4/5;
+    }
+}
+
+.Block__input{
+    width: 100%;
+    @include fieldDecoration;
+}
+
+.Block__label{
+    @include labelEdited;
+}
+
+.Block__input:focus ~ .Block__label, .Block__input:not(:placeholder-shown).Block__input:not(:focus)~ .Block__label,
+.Block__input ~ .Block__label{
+    @include LabelAnimation;
+    font-size: 1rem;
+    color: #000;
+    font-weight: bold;
+} 
+
+.ButtonsBlock{
+    grid-column: 1/5;
+    grid-row: 6/7;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    justify-content: flex-end;
+    margin: 3rem 0;
+    margin-right: 1.3rem; 
+    margin-bottom: 6rem;
+}
+
+.change{
+    @include MainButton;
+    font-weight: 900;
+    display: grid;
+    place-items: center;
+    width: 95%;
+    font-size: .8rem
+}
+
+.cancel{
+    @include MainButton;
+    background-color: red;
+    justify-self: flex-end;
+    grid-column: 4/5;
+    justify-self: end;
+    width: 4rem;
+    padding: 0%;
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+    height: 40px;
+}
+
+.save{
+    @include MainButton;
+    background-color: rgb(10, 207, 43);
+    grid-column: 5/6;
+    width: 4rem;
+    justify-self: end;
+    padding: 0%;
+    display: grid;
+    place-items: center;
+    font-size: 1.5rem;
+    height: 40px;
+}
+
+.deleteAccount{
+    grid-column: 2/3;
+    @include MainButton;
+    background-color: rgb(202, 23, 23);
+    font-weight: 900;
+    display: grid;
+    place-items: center;
+    width: 95%;
+    font-size: .9rem;
+}
+
+@media(max-width:800px){
+    .ProfileBox{
+        width: 100%;
+        border: none;
+        box-shadow: none;
+    }
+
+    .form{
+        grid-column: 1/6;
+        grid-template-rows: repeat(5,auto) 60px auto;
+        grid-template-columns: 1fr;
+        place-items: left center;
+    
+        span{
+            margin-left: 1.3rem;
+            grid-column: 1/2;
+            grid-row: 7/8;
+        }
+    }
+
+    
+    .formBlock{
+        margin-left: 1.3rem;
+        
+        &:nth-child(1){
+            grid-column: 1/2;
+            grid-row: 1/2;
+        }
+
+        &:nth-child(2){
+            grid-column: 1/2;
+            grid-row: 2/3;
+        }
+
+        &:nth-child(3){
+            grid-column: 1/2;
+            grid-row: 3/4;
+        }
+
+        &:nth-child(4){
+            grid-column: 1/2;
+            grid-row: 4/5;
+        }
+
+        &:nth-child(5){
+            grid-column: 1/2;
+            grid-row: 5/6;
+        }
+    }
+
+    .ButtonsBlock{
+        grid-column: 1/2;
+        grid-row: 7/8;
+        margin-left: 1.3rem;
+        grid-template-columns: repeat(4,1fr)
+        ;
+        grid-template-rows: repeat(3,auto);
+    }
+
+    .change{
+        grid-row: 2/3;
+        grid-column: 2/4;
+        margin-top: .8rem;
+        margin-bottom: .8rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    .cancel{
+        grid-row: 1/2;
+        grid-column: 2/3;
+        width: 80%;
+        justify-self: start;
+        margin: .8rem 0;
+    }
+
+    .save{
+        grid-row: 1/2;
+        grid-column: 3/4;
+        width: 80%;
+        margin: .8rem 0;
+    }
+
+    .deleteAccount{
+        grid-row: 3/4;
+        grid-column: 2/4;
+        width: 100%;
+        font-size: .9rem;
+        background-color: #fff;
+        border: none;
+        color: $decorator-2;
+        filter: none;
+        margin-top: 3rem;
+
+        &:hover{
+            color: #fff;
+        }
+    }
+}
+
+@media(max-width:486px){
+    .change{
+        grid-row: 2/3;
+        grid-column: 1/5;
+
+        &:hover{
+            transform: scale(1);
+        }
+    }
+
+    .cancel{
+        grid-row: 1/2;
+        grid-column: 1/3;
+        &:hover{
+            transform: scale(1);
+        }
+    }
+
+    .save{
+        grid-row: 1/2;
+        grid-column: 3/5;
+        &:hover{
+            transform: scale(1);
+        }
+    }
+
+    .deleteAccount{
+        grid-row: 3/4;
+        grid-column: 1/5;
+        &:hover{
+            transform: scale(1);
+        }
+    }
+}

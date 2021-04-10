@@ -1,0 +1,66 @@
+<div class="editBox">
+    <div class="Header">
+        <h1>Comprar</h1>
+        <a routerLink="/sesionc/navegarc"><i class="far fa-times-circle"></i></a>
+    </div>
+    <form class="form"  [formGroup]="facturaForm">
+        <span>Información Cliente:</span>
+        <div class="FormBlock">
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="name" readonly formControlName="nombre">
+            <label for="name" class="Block__label">Nombre</label>
+        </div>
+        <div class="FormBlock">
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="ID" readonly formControlName="id">
+            <label for="ID" class="Block__label">ID</label>
+        </div>
+        <div class="FormBlock">
+            <input type="email" class="Block__input" placeholder=" " autocomplete="off" id="Email" readonly formControlName="correo">
+            <label for="Email" class="Block__label">Email</label>
+        </div>
+        <div class="FormBlock">
+            <input type="tel" class="Block__input" placeholder=" " autocomplete="off" id="phone" readonly formControlName="telefono">
+            <label for="phone" class="Block__label">teléfono</label>
+        </div>
+        <span>Producto: </span>
+        <div class="FormBlock">
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="Pname" readonly formControlName="id_producto">
+            <label for="Pname" class="Block__label">Nombre Producto</label>
+        </div>
+        <div class="FormBlock">
+            <textarea class="Block__input" placeholder=" " autocomplete="off" id="comment" readonly formControlName="comentarios"></textarea>
+            <label for="comment" class="Block__label">Comentario extra:</label>
+        </div>
+        <span>Extras: </span>
+        <div class="FormBlock">
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="address" readonly formControlName="direccion">
+            <label for="address" class="Block__label">Dirección</label>
+        </div>
+        <div class="FormBlock">
+            <input type="number" class="Block__input" placeholder=" " autocomplete="off" id="price" readonly formControlName="valor">
+            <label for="price" class="Block__label">Valor</label>
+        </div>
+        <div class="FormBlock">
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="Fecha" readonly formControlName="fecha">
+            <label for="Fecha" class="Block__label">Fecha</label>
+        </div>
+        <div class="FormBlock">
+            <p>En el siguiente campo ingrese un codigo de descuento en caso de que se le haya brindado uno</p>
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="codigo" readonly formControlName="codigo">
+        </div>
+        <div class="BankInfo">
+            <p>Las cuentas bancarias para realizar la consignacion son las siguientes:</p>
+
+            <div class="field">
+                <span class="cuenta">Cta 1: </span><span class="NumeroCuenta">48484848484</span>
+            </div>
+            <div class="field">
+                <span class="cuenta">Cta 2: </span><span class="NumeroCuenta">48444848484</span>
+            </div>
+        </div>
+        <div class="ButtonsBlock">
+            <button>
+                Realizar Pedido
+            </button>
+        </div>
+    </form>
+</div>

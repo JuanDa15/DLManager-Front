@@ -1,0 +1,28 @@
+<div class="changeBox">
+    <h1>
+        Editar perfil > cambiar clave
+    </h1>
+    <p>Desde esta ventana usted podrá realizar el cambio de la clave actual para el acceso al sistema</p>
+    <form class="form" [formGroup]="cambiarpassForm">
+        <div class="form__block">
+            <input type="text" placeholder=" " autocomplete="off" class="Block__input" id="oldpass" formControlName="contraseña">
+            <label for="oldpass" class="Block__label">Clave actual</label>
+        </div>
+        <div class="form__block">
+            <input type="text"  placeholder=" " autocomplete="off" id="newpass" class="Block__input" formControlName="contraseña_n">
+            <label for="newpass" class="Block__label">Clave nueva</label>
+        </div>
+        <div class="form__block">
+            <input type="text"  placeholder=" " autocomplete="off" id="newpass2" class="Block__input" formControlName="contraseña_n2">
+            <label for="newpass2" class="Block__label">Verificar clave</label>
+        </div>
+        <div class="ButtonsBlock">
+            <a routerLink="/sesionc/editarperfillab" class="cancel"><i class="fas fa-times"></i></a>
+            <button type="submit"
+                [disabled]="(!cambiarpassForm.valid) || (cambiarpassForm.get('contraseña_n').value != cambiarpassForm.get('contraseña_n2').value)"
+                (click)="onChangePass(cambiarpassForm.value)">
+                Cambiar
+            </button>
+        </div>
+    </form>
+</div>

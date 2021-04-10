@@ -1,3 +1,5 @@
+@import '../../styles.scss';
+
 .MainPanel{
     width: 82%;
     float: right;
@@ -8,4 +10,61 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(3,1fr);
+}
+
+.Recents{
+    grid-column: 2/4;
+    grid-row: 1/4;
+    background-color: $white;
+    width:90%;
+    height:85%;
+    margin: auto auto;
+    border-radius: 1.8rem;
+    border: 1px solid #999;
+    filter: drop-shadow(2px 2px 3px #666);
+    overflow: auto;
+    background-color: #DFE0E2;
+
+    table{
+        width: 100%;
+        border-collapse:collapse;
+        background-color: #fff;
+        
+        caption{
+            cursor: pointer;
+
+            &:hover{
+                color: $decorator-2;
+            }
+        }
+
+        tr{
+            text-align: center;
+            border-bottom: 2px solid #999;
+
+            td,th{
+                padding: .8rem .6rem;
+                color: $dark-blue;
+                font-weight: 900;
+            }
+        }
+    }
+}
+
+
+@media(max-width:800px){
+    .MainPanel{
+        width: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5,1fr);
+    }
+
+    .Recents{
+        grid-column:1/2;
+        grid-row: 2/5;
+        height: 95%;
+    }
 }

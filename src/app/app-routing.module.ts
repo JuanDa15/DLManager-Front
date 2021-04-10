@@ -25,6 +25,15 @@ import { LaboratorioGuard } from './guards/laboratorio.guard';
 import { NavbarClientsComponent } from './navbar-clients/navbar-clients.component';
 import { OperadorGuard } from './guards/operador.guard';
 import { OpetorChangePassComponent } from './opetor-change-pass/opetor-change-pass.component';
+import { CodegeneratorComponent } from './codegenerator/codegenerator.component';
+import { EditProfileOdontComponent } from './edit-profile-odont/edit-profile-odont.component';
+import { EditprofilelabComponent } from './editprofilelab/editprofilelab.component';
+import { CambiarContraClienComponent } from './cambiar-contra-clien/cambiar-contra-clien.component';
+import { EliminarCuentaComponent } from './eliminar-cuenta/eliminar-cuenta.component';
+import { ComprasClienteComponent } from './compras-cliente/compras-cliente.component';
+import { VercompracComponent } from './vercomprac/vercomprac.component';
+import { AyudacComponent } from './ayudac/ayudac.component';
+import { ComprarComponent } from './comprar/comprar.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -36,7 +45,8 @@ const routes: Routes = [
           {path: 'verclientes', component: ClientsVComponent},
           {path: 'verpedidos', component: PedidosvComponent},
           {path: 'log' , component: RegistroActividadesComponent},
-          {path: 'ayuda', component: AyudaComponent}
+          {path: 'ayuda', component: AyudaComponent},
+          {path: 'generarcodigo', component: CodegeneratorComponent}
         ]
       },
       {path: 'editarclienteodo', component: OperatoreditclientsComponent},
@@ -51,8 +61,16 @@ const routes: Routes = [
   {path: 'sesionc', component: NavbarClientsComponent, canActivate: [SessionGuard], children: [
     {path: 'navegarc', component: AsideClientsComponent,children:[
       {path: 'panelodontologo', component: DenProfileHomeComponent , canActivate:[OdontologoGuard]},
-      {path: 'panellaboratorio',component: LabProfileHomeComponent ,canActivate:[LaboratorioGuard]}
-    ]}
+      {path: 'panellaboratorio',component: LabProfileHomeComponent ,canActivate:[LaboratorioGuard]},
+      {path:'miscompras', component: ComprasClienteComponent},
+      {path: 'ayudac',component:AyudacComponent}
+    ]},
+    {path: 'editarperfilodt', component: EditProfileOdontComponent},
+    {path: 'editarperfillab', component: EditprofilelabComponent},
+    {path: 'cambiarcontraseñac', component: CambiarContraClienComponent},
+    {path: 'eliminarcuenta', component: EliminarCuentaComponent},
+    {path: 'compra', component: VercompracComponent},
+    {path: 'comprar', component: ComprarComponent}
   ]}
   // { path: '',component: ''},
 ];
