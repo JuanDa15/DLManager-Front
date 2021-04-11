@@ -1,10 +1,10 @@
 <header class="Header">
     <nav class="Header__Nav">
         <a (click)="onLogOut()" class="Link__SignUp"><i class="fas fa-sign-out-alt sign-out"></i></a>
-        <a routerLink="/sesionc/navegarc/" class="NameLink"><span class="Navbar__Name">DL MANAGER</span></a>
+        <a (click)="selectPanel()" class="NameLink"><span class="Navbar__Name">DL MANAGER</span></a>
         <div class="Navbar__user">
-            <span>Bienvenido Joe Doe</span>
-            <a  routerLink="/sesionc/editarperfilodt"><i class="fas fa-user-circle"></i></a>
+            <span>Bienvenido {{correo}}</span>
+            <a  (click)="editProfile()"><i class="fas fa-user-circle"></i></a>
         </div>
         <ul class="Nav__Responsive">
             <div class="Nav__responsive-button">
@@ -12,17 +12,17 @@
             </div>
             <div class="Nav__ResponsiveContainer">
                 <li class="First-Block">
-                    <span>Bienvenido Joe Doe</span>
+                    <span>Bienvenido {{correo}}</span>
                     <a routerLink="/sesionc/editarperfilodt"><i class="fas fa-user-circle"></i></a>
                 </li>
                 <li class="Block">
-                    <a routerLink="/sesionc/navegarc/">Inicio</a>
+                    <a (click)="selectPanel()">Inicio</a>
                 </li>
                 <hr>
                 <li class="Block"><a routerLink="/sesionc/navegarc/miscompras">Mis Compras</a></li>
                 <hr>
-                <li class="Block"><a routerLink="/sesionc/comprar">Comprar</a></li>
-                <hr>
+                <!-- <li class="Block"><a routerLink="/sesionc/comprar">Comprar</a></li>
+                <hr> -->
                 <li class="Block"><a routerLink="/sesionc/navegarc/ayudac">Ayuda</a></li>
                 <hr>
                 <li class="Block">

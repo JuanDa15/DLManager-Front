@@ -6,22 +6,22 @@
     <form class="form" [formGroup]="labForm">
         <div class="formBlock">
             <input class="Block__input" type="text" id="Name" placeholder=" " autocomplete="off"
-                formControlName="nombre">
+                formControlName="nombre_p">
             <label class="Block__label" for="Name">Nombre</label>
         </div>
         <div class="formBlock">
             <input class="Block__input" type="number" id="ID" placeholder=" " autocomplete="off"
-                formControlName="cedula">
+                formControlName="cedula_p">
             <label class="Block__label" for="ID">CC</label>
         </div>
         <div class="formBlock">
             <input class="Block__input" type="tel" id="Phone" placeholder=" " autocomplete="off"
-                formControlName="telefono">
+                formControlName="telefono_p">
             <label class="Block__label" for="Phone">Telefono</label>
         </div>
         <div class="formBlock">
             <input class="Block__input" type="email" id="Email" placeholder=" " autocomplete="off"
-                formControlName="correo">
+                formControlName="correo_p">
             <label class="Block__label" for="Email">Correo</label>
         </div>
         <span>Editar información laboratorio:</span>
@@ -31,7 +31,7 @@
             <label class="Block__label" for="NameLab">Nombre</label>
         </div>
         <div class="formBlock">
-            <input class="Block__input" type="text" id="NIT" placeholder=" " autocomplete="off" formControlName="nit_l">
+            <input class="Block__input" type="text" id="NIT" placeholder=" " autocomplete="off" formControlName="nit">
             <label class="Block__label" for="NIT">NIT</label>
         </div>
         <div class="formBlock">
@@ -51,8 +51,8 @@
         </div>
         <div class="ButtonsBlock">
             <a class="change" routerLink="/sesionc/cambiarcontraseñac">Cambiar Contraseña</a>
-            <a routerLink="/sesionc/eliminarcuenta"class="deleteAccount">Eliminar Cuenta</a>
-            <a class="cancel" routerLink="/sesionc/navegarc"><i class="fas fa-times"></i></a>
+            <a class="deleteAccount" (click)="alert()">Eliminar Cuenta</a>
+            <a class="cancel" routerLink="/sesionc/navegarc/panellaboratorio"><i class="fas fa-times"></i></a>
             <button type="submit" class="save" [disabled]="!labForm.valid" (click)="onUpdate(labForm.value)">
                 <i class="far fa-save"></i>
             </button>

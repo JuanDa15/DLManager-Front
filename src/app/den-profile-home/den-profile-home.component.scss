@@ -35,6 +35,9 @@
         
         caption{
             cursor: pointer;
+            font-size: 1rem;
+            font-weight: 900;
+            color: $dark-blue;
 
             &:hover{
                 color: $decorator-2;

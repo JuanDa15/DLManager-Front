@@ -14,7 +14,8 @@ export class NavbarComponent implements OnInit {
   
   constructor(private loguotservice: LogoutService, private router:Router,private tokenm: TokenmanagerService){}
 
-  correo = this.tokenm.getEmail();
+  correo = this.tokenm.getName();
+  
   ngOnInit(): void {
   }
 

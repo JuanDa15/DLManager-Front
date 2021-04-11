@@ -74,6 +74,24 @@
     }
 }
 
+.alert{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border-radius: .5rem;
+    align-self: center;
+
+    h2{
+        color: $decorator-2;
+        font-size: 1.5rem;
+        font-weight: 900;
+    }
+
+    img{
+        width: 75px;
+        height: 75px;
+    }
+}
 @media(max-width: 800px){
     .PedidosPanel{
         width: 100%;

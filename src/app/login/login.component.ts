@@ -37,9 +37,6 @@ export class LoginComponent implements OnInit {
           icon: 'success',
           position: 'top-right',
         }),
-          this.log.createLog('Inicion de sesion: ' + form['correo']).subscribe({
-            next: (value) => {},
-          });
         localStorage.setItem('token', value['token']);
         if (this.jwtm.getPermissions() == 1) {
           this.router.navigate(['sesionc/navegarc/panellaboratorio']);

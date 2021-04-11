@@ -8,10 +8,10 @@
     <form class="formCode" [formGroup]="codeForm">
         <div class="Form__Block">
             <input type="number" id="Code" class="Block__input" autocomplete="off" placeholder=" " min="1" max="100"
-                formControlName="Code">
+                formControlName="code">
             <label for="Code" class="Block__label">Descuento</label>
         </div>
-        <button type="submit" class="Form__Button" (click)="CodeGenerator(codeForm.value)" [disabled]="!codeForm.valid">
+        <button type="submit" class="Form__Button" [disabled]="!codeForm.valid " (click)="CodeGenerator(codeForm.value)">
             Generar Codigo
         </button>
     </form>

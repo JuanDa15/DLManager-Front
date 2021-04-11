@@ -1,5 +1,5 @@
 <div class="MainPanel">
-    <div class="Recents">
+    <div class="Recents" *ngIf="!mensaje" >
         <table>
             <caption routerLink="/sesionc/navegarc/miscompras" class="caption">Historial compras</caption>
             <tr>
@@ -7,10 +7,10 @@
                 <th>Producto</th>
                 <th>Estado</th>
             </tr>
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
+            <tr *ngFor="let pedido of pedidosFiltrados">
+                <td>{{pedido.fecha}}</td>
+                <td>{{pedido.pk}}</td>
+                <td>{{pedido.estado}}</td>
             </tr>
         </table>
     </div>

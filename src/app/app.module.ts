@@ -31,7 +31,6 @@ import { CodegeneratorComponent } from './codegenerator/codegenerator.component'
 import { EditProfileOdontComponent } from './edit-profile-odont/edit-profile-odont.component';
 import { EditprofilelabComponent } from './editprofilelab/editprofilelab.component';
 import { CambiarContraClienComponent } from './cambiar-contra-clien/cambiar-contra-clien.component';
-import { EliminarCuentaComponent } from './eliminar-cuenta/eliminar-cuenta.component';
 import { ComprasClienteComponent } from './compras-cliente/compras-cliente.component';
 import { VercompracComponent } from './vercomprac/vercomprac.component';
 import { AyudacComponent } from './ayudac/ayudac.component';
@@ -67,7 +66,6 @@ import { ComprarComponent } from './comprar/comprar.component';
     EditProfileOdontComponent,
     EditprofilelabComponent,
     CambiarContraClienComponent,
-    EliminarCuentaComponent,
     ComprasClienteComponent,
     VercompracComponent,
     AyudacComponent,

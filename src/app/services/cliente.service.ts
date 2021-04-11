@@ -24,4 +24,8 @@ export class ClienteService {
   put(body,pk){
     return this.http.put(environment.backendUrl + 'cliente/' + pk,body,{headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}})
   }
+
+  patchPass(body,pk){
+    return this.http.patch(environment.backendUrl + 'clientep/' + pk ,body,{headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}});
+  }
 }

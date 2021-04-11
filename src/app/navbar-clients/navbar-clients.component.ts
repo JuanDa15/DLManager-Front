@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { LogoutService } from '../services/logout.service';
+import { TokenmanagerService } from '../services/tokenmanager.service';
 
 @Component({
   selector: 'app-navbar-clients',
@@ -9,7 +10,9 @@ import { LogoutService } from '../services/logout.service';
   styleUrls: ['./navbar-clients.component.scss'],
 })
 export class NavbarClientsComponent implements OnInit {
-  constructor(private loguotservice: LogoutService, private router: Router) {}
+  constructor(private loguotservice: LogoutService, private router: Router,private route:Router,private jwtm:TokenmanagerService) {}
+
+  correo = this.jwtm.getName();
 
   ngOnInit(): void {}
 
@@ -37,4 +40,23 @@ export class NavbarClientsComponent implements OnInit {
       },
     });
   }
+
+  editProfile(){
+    if(this.jwtm.getPermissions()==1){
+      this.router.navigate(['sesionc/editarperfillab']);
+    }
+    if(this.jwtm.getPermissions()==2){
+      this.router.navigate(['sesionc/editarperfilodt']);
+    }
+  }
+
+  selectPanel(){
+    if(this.jwtm.getPermissions()==1){
+      this.router.navigate(['sesionc/navegarc/panellaboratorio']);
+    }
+    if(this.jwtm.getPermissions()==2){
+      this.router.navigate(['sesionc/navegarc/panelodontologo']);
+    }
+  }
+
 }

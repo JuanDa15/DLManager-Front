@@ -28,6 +28,17 @@ export class TokenmanagerService {
     }
   }
 
-  
+  getID(){
+    if(localStorage.getItem('token') !== null){
+      return jwtDecode(localStorage.getItem('token'))['id'];
+    }
+    return false;
+  }
 
+  getName(){
+    if(localStorage.getItem('token') !== null){
+      return jwtDecode(localStorage.getItem('token'))['nombre'];
+    }
+    return false;
+  }
 }

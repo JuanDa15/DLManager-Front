@@ -11,9 +11,6 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class ComprarComponent implements OnInit {
 
   constructor(private spinner: NgxSpinnerService,private router: Router) { }
-
-  ngOnInit(): void {
-  }
   
   idCliente = '';
   idFactura = '';
@@ -32,6 +29,10 @@ export class ComprarComponent implements OnInit {
     fecha: new FormControl('',Validators.required),
     codigo: new FormControl('',Validators.required)
   })
+
+  ngOnInit(): void {
+  }
+
   onGetInfo(){
   }
 }

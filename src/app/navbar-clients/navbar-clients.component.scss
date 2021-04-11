@@ -6,6 +6,7 @@
     color: $dark-blue;
     filter: drop-shadow(1px 1px 3px #666);
     transition: color .3s ease;
+    cursor: pointer;
 
     &:hover{
         color: $decorator-2;
@@ -19,6 +20,7 @@
     filter: drop-shadow(2px 2px 1px #666);
     justify-self: center;
     transition: color .3s ease;
+    cursor: pointer;
 
     &:hover{
         color: $decorator-2;
@@ -43,6 +45,7 @@
         font-size: 48px;
         color: $dark-blue;
         filter: drop-shadow(1px 1px 3px #666);
+        cursor: pointer;
 
         transition: color .3s ease;
 

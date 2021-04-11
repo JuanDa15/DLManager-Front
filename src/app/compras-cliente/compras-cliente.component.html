@@ -1,8 +1,11 @@
 <div class="PedidosPanel">
     <h1>Mis compras</h1>
-    <input type="text" placeholder="Ingrese No pedido" (input)="updateFilter($event.target.value)">
-
-    <div class="tableContainer">
+    <input *ngIf="!mensaje" type="text" placeholder="Ingrese No pedido" (input)="updateFilter($event.target.value)">
+    <div *ngIf="mensaje" class="alert">
+        <h2>{{mensaje}}</h2>
+        <img src="../../assets/img/icons8-caja-vacía-64.png" alt="empty">
+    </div>
+    <div *ngIf="!mensaje" class="tableContainer">
         <table>
             <tr>
                 <th>ID pedido</th>
@@ -12,13 +15,13 @@
                 <th>Estado</th>
                 <th> </th>
             </tr>
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <th>5</th>
-                <td><i routerLink="/sesionc/compra" class="far fa-edit"></i></td>
+            <tr *ngFor="let pedido of pedidosFiltrados">
+                <td>{{pedido.pk}}</td>
+                <td>{{pedido.id_producto}}</td>
+                <td>{{pedido.fecha}}</td>
+                <td>{{pedido.valor}}</td>
+                <th>{{pedido.estado}}</th>
+                <td><i (click)="onSee(pedido.pk)" class="fas fa-eye"></i></td>
             </tr>
         </table>
     </div>
