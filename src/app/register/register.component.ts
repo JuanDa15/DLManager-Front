@@ -19,8 +19,8 @@ export class RegisterComponent implements OnInit{
   selectedClient:string = '';
 
   public odontologoForm = new FormGroup({
-    cedula : new FormControl('',Validators.compose([Validators.minLength(8),Validators.required])),
-    nombre: new FormControl('',Validators.compose([Validators.required,Validators.maxLength(30)])),
+    cedula : new FormControl('',Validators.required),
+    nombre: new FormControl('',Validators.required),
     telefono: new FormControl('',Validators.required),
     direccion: new FormControl('',Validators.required),
     correo : new FormControl('',Validators.compose([Validators.required, Validators.email])),
@@ -30,12 +30,12 @@ export class RegisterComponent implements OnInit{
 
   public laboratorioForm = new FormGroup({
     nombre_p: new FormControl('', Validators.required),
-    telefono_p: new FormControl('', Validators.compose([Validators.required,Validators.minLength(7),Validators.maxLength(10)])),
+    telefono_p: new FormControl('', Validators.required),
     correo_p: new FormControl('', Validators.compose([Validators.required, Validators.email])),
     cedula_p: new FormControl('', Validators.required),
-    nit: new FormControl('',Validators.compose([Validators.required,Validators.maxLength(11)])),
+    nit: new FormControl('',Validators.required),
     nombre_l: new FormControl('',Validators.required),
-    telefono_l: new FormControl('',Validators.compose([Validators.required,Validators.minLength(7),Validators.maxLength(10)])),
+    telefono_l: new FormControl('',Validators.required),
     direccion_l: new FormControl('',Validators.required),
     correo_l: new FormControl('', Validators.compose([Validators.required,Validators.email])),
     contraseña: new FormControl('',Validators.required),
