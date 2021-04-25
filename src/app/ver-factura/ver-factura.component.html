@@ -44,11 +44,12 @@
             <label for="Fecha" class="Block__label">Fecha</label>
         </div>
         <div class="FormBlock">
-            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="estate" readonly formControlName="estado">
-            <label for="estate" class="Block__label">Estado:</label>
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="estado"  formControlName="estado">
+            <label for="estado" class="Block__label">estado</label>
         </div>
         <div class="ButtonsBlock">
             <a class="delete"><i class="fas fa-trash" (click)="showAlert()"></i></a>
+            <a class="save"><i class="fas fa-save" (click)="update(facturaForm.value)"></i></a>
         </div>
     </form>
 </div>

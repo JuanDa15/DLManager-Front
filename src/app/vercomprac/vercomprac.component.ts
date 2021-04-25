@@ -85,4 +85,8 @@ export class VercompracComponent implements OnInit {
       }
     })
   }
+
+  printPage(){
+    window.print();
+  }
 }

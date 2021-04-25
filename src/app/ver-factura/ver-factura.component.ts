@@ -8,6 +8,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ClienteService } from '../services/cliente.service';
 import { environment } from '../../environments/environment.prod';
 import { LogService } from '../services/log.service';
+import { TokenmanagerService } from '../services/tokenmanager.service';
 
 @Component({
   selector: 'app-ver-factura',
@@ -17,13 +18,16 @@ import { LogService } from '../services/log.service';
 export class VerFacturaComponent implements OnInit { 
   
 
-  constructor(private ActivatedRoute: ActivatedRoute, private pedido: PedidoService,private spinner: NgxSpinnerService, private cliente:ClienteService,private router: Router,private log: LogService) { }
+  constructor(private ActivatedRoute: ActivatedRoute, private pedido: PedidoService,private spinner: NgxSpinnerService, private cliente:ClienteService,private router: Router,private log: LogService, private jwtm: TokenmanagerService) { }
 
   id = this.ActivatedRoute.snapshot.paramMap.get('id');
   idCliente = '';
   idFactura = '';
   correo = '';
   contraseña ='';
+  state = '';
+  email = this.jwtm.getEmail();
+  fechaPedido = '';
 
   public facturaForm = new FormGroup({
     nombre: new FormControl('',Validators.required),
@@ -48,8 +52,9 @@ export class VerFacturaComponent implements OnInit {
     this.pedido.get(this.id).subscribe({
       next: value => {
         var data = value['data']
-        this.idCliente = value['data']['id_cliente'];
-        this.idFactura = value['data']['id'];
+        this.idCliente = data['id_cliente'];
+        this.idFactura = data['id'];
+        this.fechaPedido = data['fecha'];
         this.facturaForm.patchValue({
           comentarios: data['comentarios'],
           estado: data['estado'],
@@ -91,6 +96,10 @@ export class VerFacturaComponent implements OnInit {
     })
   }
 
+  selectChangeHandler (event: any) {
+    this.state = event.target.value;
+  }
+
   showAlert(){
     Swal.fire({
       icon: 'warning',
@@ -105,6 +114,82 @@ export class VerFacturaComponent implements OnInit {
         this.getCrendential();
       }
     })
+  }
+
+  update(form){
+    delete form['nombre'];
+    delete form['id'];
+    delete form['correo'];
+    delete form['telefono'];
+    delete form['id_producto'];
+    delete form['comentarios'];
+    delete form['direccion'];
+    delete form['valor'];
+    delete form['fecha'];
+
+    this.pedido.patch(form,this.idFactura).subscribe({
+      next: value => {
+        Swal.fire({
+          title: 'Estado cambiado exitosamente',
+          icon: 'success',
+          position: 'top-right',
+          timer: 2000
+        })
+        this.log.createLog('Actualizacion estado de pedido: ' + this.email).subscribe({
+          next: value =>{}
+        })
+      },
+      error:err=>{
+        Swal.fire({
+          title: 'error al cambiar el estado',
+          icon: 'error',
+          position: 'top-right',
+          timer: 2000
+        })
+      }
+    })
+  }
+
+  deletePedido(){
+    const today = new Date();
+    const pedidoFecha = new Date(this.fechaPedido);
+
+    const diferencia = today.getTime() - pedidoFecha.getTime();
+    const horas = diferencia / (1000 * 3600 * 24) * 24;
+
+    if(horas <= 8 && horas>= 0){
+      this.pedido.delete(this.idFactura).subscribe({
+        next: value =>{
+          console.log(value);
+          Swal.fire({
+            position: 'top-right',
+            icon: 'success',
+            title: 'Eliminado satisfactoriamente',
+            timer: 2000
+          })
+          this.log.createLog('Eliminar pedido: ' + this.id).subscribe({
+            next: value =>{}
+          })
+          this.router.navigate(['sesion/navegar/verpedidos']);
+        },
+        error: err =>{
+          Swal.fire({
+            position: 'top-right',
+            icon: 'error',
+            title: 'No se puede eliminar el pedido',
+            timer: 2000
+          })
+        }
+      })
+    }else{
+      Swal.fire({
+        position: 'top-right',
+        icon: 'error',
+        title: 'No se puede eliminar',
+        text: 'Ya han pasado 8 horas desde la creación del pedido',
+        timer: 2000
+      })
+    }
   }
 
   async getCrendential(){
@@ -136,29 +221,7 @@ export class VerFacturaComponent implements OnInit {
 
       if(this.correo == environment.DEFAULT_SU_EMAIL){
         if(this.contraseña == environment.DEFAULT_SU_PASSWORD){
-          this.pedido.delete(this.id).subscribe({
-            next: value =>{
-              Swal.fire({
-                position: 'top-right',
-                icon: 'success',
-                title: 'Eliminado satisfactoriamente',
-                timer: 2000
-              })
-              this.log.createLog('Eliminar pedido: ' + this.id).subscribe({
-                next: value =>{}
-              })
-              this.router.navigate(['sesion/navegar/verclientes']);
-            },
-            error: err =>{
-              Swal.fire({
-                position: 'top-right',
-                icon: 'success',
-                title: 'Error al eliminar usuario',
-                timer: 2000
-              })
-              this.router.navigate(['sesion/navegar/verclientes']);
-            }
-          })
+          this.deletePedido();
         }
       }
     }

@@ -22,7 +22,7 @@ export class PedidoService {
     return this.http.delete(environment.backendUrl + 'pedido/' +pk ,{headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}});
   }
 
-  put(body,pk){
-    return this.http.put(environment.backendUrl + 'pedido/' + pk,body,{headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}})
+  post(body){
+    return this.http.post(environment.backendUrl + 'pedido',body,{headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}})
   }
 }

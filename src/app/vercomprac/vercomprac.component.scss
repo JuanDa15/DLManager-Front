@@ -73,6 +73,35 @@
     }
 }
 
+.print{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 1.8rem;
+    @include MainButton;
+}
+
+.BankInfo{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+
+    .field{
+        margin: .2rem 0;
+
+        .NumeroCuenta{
+            color: #666;
+            font-weight: 900;
+        }
+    }
+
+    p{
+        color: $decorator-2;
+        font-weight: 900;
+        letter-spacing: 1px;
+        font-size: 1.2rem;
+    }
+}
+
 .FormBlock{
     width: 100%;
     margin: 1rem auto;
@@ -414,5 +443,28 @@
         display: grid;
         place-items: center center;
         margin: 2rem auto;
+    }
+}
+
+@media print {
+    html, body {
+        height:100%; 
+        margin: 0 !important; 
+        padding: 0 !important;
+        overflow: hidden;
+    }
+
+    .print{
+        display: none;
+    }
+
+    .Header i{
+        display: none;
+    }
+
+    .FormBlock{
+        &:nth-child(13){
+            display: none;
+        }
     }
 }

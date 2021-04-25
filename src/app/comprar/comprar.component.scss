@@ -45,6 +45,11 @@
     }
 }
 
+.products{
+    display: flex;
+    flex-flow: column nowrap;
+}
+
 .form{
     display: grid;
     grid-template-columns: repeat(4,1fr);

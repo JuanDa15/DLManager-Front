@@ -10,7 +10,7 @@
             <label for="name" class="Block__label">Nombre</label>
         </div>
         <div class="FormBlock">
-            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="ID" readonly formControlName="id">
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="ID" readonly formControlName="id_cliente">
             <label for="ID" class="Block__label">ID</label>
         </div>
         <div class="FormBlock">
@@ -22,12 +22,14 @@
             <label for="phone" class="Block__label">teléfono</label>
         </div>
         <span>Producto: </span>
-        <div class="FormBlock">
-            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="Pname" readonly formControlName="id_producto">
-            <label for="Pname" class="Block__label">Nombre Producto</label>
+        <div class="FormBlock products">
+            <select id="CT" class="Block__input" (change)="selectChangeHandler($event)">
+                <option value="#">Seleccione un producto</option>
+                <option value="{{producto.id_producto}}" *ngFor="let producto of productosList">{{producto.nombre}}</option>
+            </select>
         </div>
         <div class="FormBlock">
-            <textarea class="Block__input" placeholder=" " autocomplete="off" id="comment" readonly formControlName="comentarios"></textarea>
+            <textarea class="Block__input" placeholder=" " autocomplete="off" id="comment" formControlName="comentarios"></textarea>
             <label for="comment" class="Block__label">Comentario extra:</label>
         </div>
         <span>Extras: </span>
@@ -45,7 +47,7 @@
         </div>
         <div class="FormBlock">
             <p>En el siguiente campo ingrese un codigo de descuento en caso de que se le haya brindado uno</p>
-            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="codigo" readonly formControlName="codigo">
+            <input type="text" class="Block__input" placeholder=" " autocomplete="off" id="codigo" formControlName="codigo">
         </div>
         <div class="BankInfo">
             <p>Las cuentas bancarias para realizar la consignacion son las siguientes:</p>
@@ -58,7 +60,8 @@
             </div>
         </div>
         <div class="ButtonsBlock">
-            <button>
+            <button  [disabled]="(!facturaForm.valid)"
+            (click)="Buy(facturaForm.value)">
                 Realizar Pedido
             </button>
         </div>

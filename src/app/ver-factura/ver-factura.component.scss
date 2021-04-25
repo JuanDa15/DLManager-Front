@@ -48,7 +48,7 @@
 .form{
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    grid-template-rows: repeat(8, auto);
+    grid-template-rows: repeat(9, auto);
 
     span{
         font-size: 1.2rem;
@@ -177,13 +177,25 @@
     grid-row: 8/9;
     width: 100%;
     margin: 0 auto;
-    display: grid;
+    display: flex;
+    flex-flow: row nowrap;
     place-items: center right;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+}
+
+.save{
+    @include MainButton;
+    background-color: rgb(27, 173, 46);
+    font-size: 1.6rem;
+    height: 40px;
+    width: 4rem;
+    padding: 0;
+    display: grid;
+    place-items: center;
 }
 
 .delete{
-    grid-column: 1/2;
-    grid-row: 1/2;
     @include MainButton;
     background-color: #f00;
     font-size: 1.6rem;
