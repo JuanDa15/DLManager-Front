@@ -313,8 +313,12 @@
         grid-row: 10/11;
         width: 95%;
         margin-right: 0;
-        display: grid;
-        place-items: center right;
+        display: flex;
+        flex-flow: column nowrap;
+
+        .save{
+            margin-top: .5rem;
+        }
     }
 }
 
@@ -423,8 +427,8 @@
         grid-column: 1/2;
         grid-row: 15/16;
         width: 100%;
-        display: grid;
-        place-items: center center;
+        display: flex;
+        flex-flow: row nowrap;
         margin: 2rem auto;
     }
 }
