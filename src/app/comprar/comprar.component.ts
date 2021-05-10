@@ -115,7 +115,7 @@ export class ComprarComponent implements OnInit {
       next: value => {
         this.idFactura = value['data']['id_pedido'];
         Swal.fire({
-          title: 'Pedido realizado satisfactoriamente',
+          title: value['detail'],
           icon: 'success',
           position: 'top-right',
           timer: 2000

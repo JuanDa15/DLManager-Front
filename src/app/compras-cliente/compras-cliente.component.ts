@@ -34,6 +34,7 @@ export class ComprasClienteComponent implements OnInit {
             pedidos_list[i]['fields']['pk'] = pedidos_list[i]['pk']; 
             this.pedidosList.push(pedidos_list[i]['fields']);
           }
+          console.log(value);
           this.pedidosFiltrados = this.pedidosList;
         }
         this.spinner.hide();
