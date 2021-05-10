@@ -91,6 +91,7 @@ export class OperatoreditclientsComponent implements OnInit{
       denyButtonText:'No',
       denyButtonColor:'red',
     }).then((result)=>{
+      if(result.isConfirmed){
       this.cliente.patch({'visible': 0},this.id).subscribe({
         next: value => {
           Swal.fire({
@@ -113,6 +114,7 @@ export class OperatoreditclientsComponent implements OnInit{
           })
         }
       })
+      }
     })
   }
 

@@ -173,7 +173,8 @@ onHide(){
     denyButtonText:'No',
     denyButtonColor:'red',
   }).then((result)=>{
-    this.laboratorio.patch({'visible': 0},this.id).subscribe({
+    if(result.isConfirmed){
+      this.laboratorio.patch({'visible': 0},this.id).subscribe({
       next: value => {
         Swal.fire({
           position: 'top-right',
@@ -195,6 +196,7 @@ onHide(){
         })
       }
     })
+    }
   })
   }
 }
