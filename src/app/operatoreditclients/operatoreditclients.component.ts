@@ -92,28 +92,28 @@ export class OperatoreditclientsComponent implements OnInit{
       denyButtonColor:'red',
     }).then((result)=>{
       if(result.isConfirmed){
-      this.cliente.patch({'visible': 0},this.id).subscribe({
-        next: value => {
-          Swal.fire({
-            position: 'top-right',
-            icon: 'success',
-            title: 'Oculto satisfactoriamente',
-            timer: 2000
-          })
-          this.log.createLog('Ocultar Usuario: ' + this.id).subscribe({
-            next: value =>{}
-          })
-          this.router.navigate(['/sesion/navegar/verclientes']);
-        },
-        error: err =>{
-          Swal.fire({
-            position: 'top-right',
-            icon: 'error',
-            title: 'Error al ocultar usuario',
-            timer: 2000
-          })
-        }
-      })
+        this.cliente.patch({'visible': 0},this.id).subscribe({
+          next: value => {
+            Swal.fire({
+              position: 'top-right',
+              icon: 'success',
+              title: 'Oculto satisfactoriamente',
+              timer: 2000
+            })
+            this.log.createLog('Ocultar Usuario: ' + this.id).subscribe({
+              next: value =>{}
+            })
+            this.router.navigate(['/sesion/navegar/verclientes']);
+          },
+          error: err =>{
+            Swal.fire({
+              position: 'top-right',
+              icon: 'error',
+              title: 'Error al ocultar usuario',
+              timer: 2000
+            })
+          }
+        })
       }
     })
   }
