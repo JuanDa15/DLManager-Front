@@ -168,6 +168,7 @@
     left: 1.8rem;
 }
 
+
 .FormBlock__input:focus ~ .FormBlock__label ,
 .FormBlock__input:not(:placeholder-shown).FormBlock__input:not(:focus)~ .FormBlock__label{
     @include LabelAnimation;
