@@ -38,7 +38,7 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'signup', component: RegisterComponent},
   { path: 'forgotpassword', component: ForgotPasswordComponent},
-  { path: 'sesion', component: NavbarComponent, canActivate: [SessionGuard,OperadorGuard] ,children:[
+  { path: 'sesion', component: NavbarComponent, children:[
       {path: 'navegar', component: AsideComponent, children:[
           {path: 'paneloperador', component: MainPanelOpeComponent},
           {path: 'verclientes', component: ClientsVComponent},
@@ -56,8 +56,8 @@ const routes: Routes = [
     ]
   },
   {path: 'registroperador', component: OperatorCredentialsComponent},
-  {path: 'operadorform', component: FormOperatorComponent,canActivate:[OperadorGuard]},
-  {path: 'sesionc', component: NavbarClientsComponent, canActivate: [SessionGuard], children: [
+  {path: 'operadorform', component: FormOperatorComponent},
+  {path: 'sesionc', component: NavbarClientsComponent , children: [
     {path: 'navegarc', component: AsideClientsComponent,children:[
       {path: 'panelodontologo', component: DenProfileHomeComponent , canActivate:[OdontologoGuard]},
       {path: 'panellaboratorio',component: LabProfileHomeComponent ,canActivate:[LaboratorioGuard]},
